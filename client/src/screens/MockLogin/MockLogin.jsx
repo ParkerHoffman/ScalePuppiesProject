@@ -12,6 +12,7 @@ export default function MockLogin({onLogin}) {
     }
 
     return (
+
          <div class="screen">
              {/*Header code*/}
             <div class="header">

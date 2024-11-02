@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from "react";
 import { Outlet } from 'react-router-dom';
 import MockLogin from "./screens/MockLogin/MockLogin";
+import Dashboard from "./screens/logged-in/Dashboard/Dashboard";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -9,13 +10,13 @@ function App() {
 
   const handleLogin = () => {
     setIsLoggedIn(true);
-    window.location.href = "/dashboard";
   };
 
   return (
     <div>
       {isLoggedIn ? (
         <>
+          <Dashboard/>
           <Outlet/> {/* Renders nested routes from BrowserRouter */}
         </>
       ) : (
@@ -24,5 +25,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
