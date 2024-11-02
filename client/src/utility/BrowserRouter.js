@@ -13,8 +13,12 @@ export const router = createBrowserRouter([
         element: <App/>,
         children: [
             {
-                path: "/dashboard",
+                path: "/",
                 element: <Dashboard/>
+            },
+            {
+                path: "/herds",
+                element: <Herds/>
             },
             { // Must be the last route
                 path: "*",
