@@ -24,7 +24,7 @@ where u.Name = @user and u.Password = @pass and f.UserName = @farm;
 , new MySqlParameter("@pass", pass)
 , new MySqlParameter("@farm", FarmUser)
 );
-            int userID = -1;
+            int FarmID = -1;
             bool isOwner = false;
             bool isSuperUser = false;
             foreach (DataTable table in ds.Tables)
@@ -34,7 +34,7 @@ where u.Name = @user and u.Password = @pass and f.UserName = @farm;
 
                     if (row.Table.Columns.Contains("FarmID"))
                     {
-                        userID = int.Parse(row["FarmID"].ToString());
+                        FarmID = int.Parse(row["FarmID"].ToString());
                     }
                     if (row.Table.Columns.Contains("isOwner"))
                     {
@@ -48,11 +48,11 @@ where u.Name = @user and u.Password = @pass and f.UserName = @farm;
                 }
             }
 
-            bool valid = userID > 0;
+            bool valid = FarmID > 0;
 
 
 
-            return new JsonResult(new { success = valid, UserID = userID });
+            return new JsonResult(new { success = valid, UserID = FarmID, Owner = isOwner, SuperUser = isSuperUser });
         }
         public static JsonResult CreateFarm(this DataBaseConnection context, string FarmUserName, string FarmName, string UserName, string UserPassword)
         {
