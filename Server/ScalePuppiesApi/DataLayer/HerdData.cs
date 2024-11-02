@@ -5,6 +5,8 @@ using ScalePuppiesApi.Models;
 using System.Data;
 using System.Runtime.CompilerServices;
 using Microsoft.Data.SqlClient;
+using Pomelo.EntityFrameworkCore;
+using MySqlConnector;
 
 namespace ScalePuppiesApi.DataLayer
 {
@@ -13,27 +15,35 @@ namespace ScalePuppiesApi.DataLayer
 
         public static JsonResult testCol1(this DataBaseConnection context)
         {
-            DataSet ds = context.DoQuery("Select Name from User where USerID = 2;");
+            
+                DataSet ds = context.DoQuery("Select Name from User where USerID = 2;");
 
-            List<string> nameList = new List<string>();
+                List<string> nameList = new List<string>();
 
-            foreach (DataTable table in ds.Tables)
-            {
-                foreach (DataRow row in table.Rows)
+                Console.BackgroundColor = ConsoleColor.Magenta;
+                foreach (DataTable table in ds.Tables)
                 {
-                    if (row.Table.Columns.Contains("Name"))
+                    foreach (DataRow row in table.Rows)
                     {
-                        nameList.Add(row["Name"].ToString());
+
+                        Console.WriteLine("Hitting for");
+                        if (row.Table.Columns.Contains("Name"))
+                        {
+                            nameList.Add(row["Name"].ToString());
+                        }
                     }
                 }
-            }
 
-            context.DoQuery("Insert into User (Name, Password) Values (@a, @b);", new SqlParameter("@a", "NateTesting"), new SqlParameter("@b", "This does"));
+                string[] nameArray = nameList.ToArray();
 
-            string[] nameArray = nameList.ToArray();
+                
+            
+            Console.WriteLine("Yes");
+
+            context.DoQuery("Insert into User (Name, Password) Values (@a, @b);", new MySqlParameter("@a", "NateTesting"), new MySqlParameter("@b", "This does"));
+
 
             return new JsonResult(nameArray);
-
         }
     }
 }

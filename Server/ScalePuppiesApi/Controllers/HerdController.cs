@@ -27,7 +27,7 @@ namespace ScalePuppiesApi.Controllers
         [HttpGet("print-column1")]
         public async Task<JsonResult> PrintColumn1()
         {
-            
+            Console.WriteLine("Hit Controller");
             return context.testCol1();
         }
 
