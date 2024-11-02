@@ -1,6 +1,43 @@
 [
   {
     "ContainingType": "ScalePuppiesApi.Controllers.AuthController",
+    "Method": "CreateNewUser",
+    "RelativePath": "api/Auth/{FarmID}/createNewUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FarmID",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "data",
+        "Type": "ScalePuppiesApi.DataTransferObjects.UserCreationDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScalePuppiesApi.Controllers.AuthController",
+    "Method": "CreateFarm",
+    "RelativePath": "api/Auth/CreateFarm",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "ScalePuppiesApi.DataTransferObjects.FarmCreationDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScalePuppiesApi.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "GET",
