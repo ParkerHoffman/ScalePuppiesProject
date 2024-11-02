@@ -1,0 +1,106 @@
+.welcomeAndLogIn{
+    display:grid;
+    justify-content:center;
+    align-items:center;
+    background-color:#D0D5D2;
+    height: 350px;
+    width: 350px;
+    margin-top: 70px;
+    box-shadow: 5px 5px gray;
+}
+
+.logInForm{
+    display: grid;
+    background-color:#FFFFFF;
+    height: 200px;
+    margin: 0 15px 15px 15px;
+    padding: 30px;
+    border: #000000;
+    border-style: solid;
+}
+
+.logInText{
+    text-align: center;
+    margin-top: -15px;
+}
+
+.logInFields{
+    display:flex;
+    flex-direction:column;
+}
+
+.farmNameLabel{
+    display:block;
+}
+
+.farmName{
+    flex:2;
+    margin: 0px;
+}
+
+.usernameLabel{
+    display:block;
+    vertical-align: top;
+}
+
+.username{
+    flex:4;
+    margin: 0px;
+
+}
+
+.passwordLabel{
+    display:block;
+    vertical-align: top;
+}
+
+.password{
+    flex:6;
+    margin: 0px;
+
+}
+
+.submit{
+    margin: 30px auto;
+    padding: 5px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.welcomeText{
+    display:flex;
+    justify-content:center;
+    
+}
+
+.screen{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    justify-self:center;
+}
+
+.header{
+    background-color:#6E301D;
+    width:100%;
+    color:#FFFFFF;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.headerText{
+    margin-bottom:-10px;
+    margin-top: -2px;
+    font-family: "Georgia", serif;
+}
+
+
+.motto{
+    font-family: "Times New Roman", Times, serif;
+}
+
