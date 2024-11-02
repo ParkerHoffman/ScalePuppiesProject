@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using Microsoft.Data.SqlClient;
 using Pomelo.EntityFrameworkCore;
 using MySqlConnector;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ScalePuppiesApi.DataLayer
 {
@@ -46,14 +47,17 @@ namespace ScalePuppiesApi.DataLayer
             return new JsonResult(nameArray);
         }
 
-        public static JsonResult loginValidation(this DataBaseConnection context, int test)
+        public static JsonResult loginValidation(this DataBaseConnection context, string FarmUser, string user, string pass )
         {
             DataSet ds = context.DoQuery(@"
-select *
-from gender_type
-where GenderTypeID = @ID; 
-", new MySqlParameter("@ID", test));
-            List<string> nameList = new List<string>();
+Select  UserID from user u
+left join farm f on f.FarmId = u.FarmID
+where u.Name = @user and u.Password = @pass and f.UserName = @farm;
+", new MySqlParameter("@user", user)
+, new MySqlParameter("@pass", pass)
+, new MySqlParameter("@farm", FarmUser)
+);
+            int userID = -1;
             foreach (DataTable table in ds.Tables)
             {
                 foreach (DataRow row in table.Rows)
@@ -61,13 +65,23 @@ where GenderTypeID = @ID;
 
                     if (row.Table.Columns.Contains("Description"))
                     {
-                        nameList.Add(row["Description"].ToString());
+                        userID = int.Parse(row["UserID"].ToString());
                     }
                 }
             }
 
-            string[] nameArray = nameList.ToArray();
-            return new JsonResult(new { test = nameArray, test2 = "HelloWorld"});
+            bool valid = userID > 0;
+
+           
+
+            return new JsonResult(new { success=valid, UserID = userID});
+        }
+
+
+
+        public static JsonResult CreateFarm()
+        {
+            return new JsonResult("");
         }
     }
 }

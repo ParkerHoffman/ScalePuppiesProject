@@ -8,8 +8,18 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "test",
-        "Type": "System.Int32",
+        "Name": "FarmUsername",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],

@@ -33,11 +33,33 @@ namespace ScalePuppiesApi.Controllers
 
         [HttpGet]
         [Route("login")]
-        public async Task<JsonResult> Login([FromQuery] int test)
+        public async Task<JsonResult> Login([FromQuery] string FarmUsername, [FromQuery] string Username, [FromQuery] string password)
         {
 
-            return context.loginValidation(test);
+            return context.loginValidation(FarmUsername, Username, password);
         }
 
+        /*
+        [HttpPost]
+        [Route("CreateFarm")]
+        public async Task<JsonResult> CreateFarm([FromBody] FarmCreationDTO data)
+        {
+            return context.CreateFarm(data.FarmUserName, data.FarmName, data.Username, data.Password);
         }
+
+        */
+
+
+        }
+
+
+    //The custom DTO to create a new farm and superuser
+    public class FarmCreationDTO
+    {
+        public string FarmName { get; set; }
+        public string FarmUserName { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+
+    }
     }
