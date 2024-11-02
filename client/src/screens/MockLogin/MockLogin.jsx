@@ -21,7 +21,9 @@ export default function MockLogin({onLogin}) {
 
             {/*Section of code containing the Welcome, and log in form */}
             <div class="welcomeAndLogIn">
-                <h3 class="welcomeText">Welcome</h3> 
+                <div>
+                    <h3 class="welcomeText">Welcome</h3> 
+                </div>
                 <div class="logInForm"> {/*log in form*/}
                     <h4 class="logInText">Log In</h4>
                     <form class="logInFields">
