@@ -2,12 +2,14 @@ import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password'
 import { FloatLabel } from 'primereact/floatlabel';
+import { useNavigate } from 'react-router-dom';
 
-export default function MockLogin({onLogin}) {
+export default function MockLogin() {
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onLogin();
+        navigate("/dashboard");
     }
 
     return (
@@ -24,7 +26,7 @@ export default function MockLogin({onLogin}) {
                         <Password id="password"/>
                         <label htmlFor="password">Password</label>
                     </FloatLabel>
-                    <Button label="Submit" type="submit"/>
+                    <Button label="Submit" type="submit" url="/dashboard"/>
                 </form>
             </div>
         </div>

@@ -1,3 +1,6 @@
+import React from 'react';
+import Navbar from '../../../components/Navbar';
+
 export default function Dashboard() {
     return (
         <>
@@ -8,7 +11,9 @@ export default function Dashboard() {
                     <div id="wrapper">
                         <div id="content"> main content </div>
                     </div>
-                    <div id="navigation"> navigation </div>
+                    <div id="navigation">
+                        <Navbar/>
+                    </div>
                 </div>
             </div>
         </>
