@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { React } from "react";
+import { Outlet, useNavigate } from 'react-router-dom';
+import { MockLogin } from "./screens/MockLogin/MockLogin";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+    navigate('/dashboard');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isLoggedIn ? (
+        <>
+          <Outlet/> {/* Renders nested routes from BrowserRouter */}
+        </>
+      ) : (
+        <MockLogin onLogin={handleLogin}/>
+      )}
     </div>
   );
 }
