@@ -30,7 +30,11 @@
 }
 
 .farmName{
-    margin: 5px;
+    margin-top: 10px;
+}
+
+.farmNameLabel{
+
 }
 
 .username{
@@ -38,8 +42,16 @@
 
 }
 
+.usernameLabel{
+
+}
+
 .password{
     margin: 5px;
+
+}
+
+.passwordLabel{
 
 }
 

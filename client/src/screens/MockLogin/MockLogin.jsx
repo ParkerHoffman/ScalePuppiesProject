@@ -28,7 +28,7 @@ export default function MockLogin({onLogin}) {
                     <h4 class="logInText">Log In</h4>
                     <form class="logInFields">
                         <FloatLabel class="farmName">
-                            <InputText id="farmName" />
+                            <InputText id="farmName"/>
                             <label htmlFor="farmName">Farm Name</label>
                         </FloatLabel>
                         <FloatLabel class="username">
