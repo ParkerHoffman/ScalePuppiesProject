@@ -1,2 +1,7 @@
 
 *.vsidx
+Server/ScalePuppiesApi/obj/Debug/net8.0/ScalePuppiesApi.GeneratedMSBuildEditorConfig.editorconfig
+Server/ScalePuppiesApi/obj/Debug/net8.0/ScalePuppiesApi.AssemblyInfo.cs
+Server/ScalePuppiesApi/obj/Debug/net8.0/ScalePuppiesApi.AssemblyInfoInputs.cache
+Server/ScalePuppiesApi/obj/Debug/net8.0/ScalePuppiesApi.assets.cache
+Server/ScalePuppiesApi/obj/Debug/net8.0/ScalePuppiesApi.csproj.AssemblyReference.cache
