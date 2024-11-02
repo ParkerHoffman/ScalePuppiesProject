@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "ScalePuppiesApi.Controllers.HerdController",
+    "Method": "Testing",
+    "RelativePath": "Herd/TestingCall",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
