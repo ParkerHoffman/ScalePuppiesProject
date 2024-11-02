@@ -5,11 +5,11 @@ import MockLogin from "./screens/MockLogin/MockLogin";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleLogin = () => {
     setIsLoggedIn(true);
-    navigate('/dashboard');
+    window.location.href = "/dashboard";
   };
 
   return (
