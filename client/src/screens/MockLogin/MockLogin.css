@@ -1,9 +1,41 @@
-.logInForm{
+.welcomeAndLogIn{
     display:flex;
-    flex-direction: row;
+    flex:2;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background-color:#D0D5D2;
+    width:24%;
+    height: 200px;
+    margin-top:100px;
+}
+
+.logInForm{
+    flex:2;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background-color:#FFFFFF;
+    width: 75%;
+    height: 200px;
+    margin-bottom: 10px;
 }
 
 .logInText{
+    flex:1;
+    display:flex;
+}
+
+.logInFields{
+    display:flex;
+    flex:2;
+    flex-direction:column;
+
+}
+
+.farmName{
+    display:flex;
     flex:1;
 }
 
@@ -12,16 +44,6 @@
     flex:2;
 }
 
-.usernameLabel{
-    position: absolute;
-	font: inherit;
-	transition: transform 200ms;
-	transform-origin: top left;
-	color: gray;
-	pointer-events: none;
-	line-height: 1;
-	display: block;
-}
 
 .password{
     display:flex;
@@ -34,6 +56,45 @@
 }
 
 .welcomeText{
+    flex:1;
     display:flex;
+    justify-content:center;
+    
+}
+
+.screen{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    justify-self:center;
+    height:800px;
+}
+
+.header{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    justify-self:center;
+    background-color:#6E301D;
+    width:100%;
+    color:#FFFFFF;
+    height:100px;
+
+}
+
+.headerText{
+    display:flex;
+    flex:1;
+    justify-content:center;
+    margin-bottom: -10px;
+}
+
+
+.motto{
+    display:flex;
+    flex:2;
+    justify-content:center;
 }
 

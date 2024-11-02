@@ -12,26 +12,35 @@ export default function MockLogin({onLogin}) {
     }
 
     return (
-        <body class="body">
-            <h1 style="font-family:Kaisei Tokumin;font-size:">HerdHarmony</h1>
+         <div class="screen">
+             {/*Header code*/}
+            <div class="header">
+            <h1 class="headerText">HerdHarmony</h1>
+            <p class="motto">Created to create harmony in and between your herds</p>
+            </div>
 
-            <div>
-                <h3 class="welcomeText">Welcome</h3>
-                    <div class="logInForm">
+            {/*Section of code containing the Welcome, and log in form */}
+            <div class="welcomeAndLogIn">
+                <h3 class="welcomeText">Welcome</h3> 
+                <div class="logInForm"> {/*log in form*/}
                     <h4 class="logInText">Log In</h4>
-                    <form>
+                    <form class="logInFields">
+                        <FloatLabel class="farmName">
+                            <InputText id="farmName" />
+                            <label htmlFor="farmName">Farm Name</label>
+                        </FloatLabel>
                         <FloatLabel class="username">
                             <InputText id="username" />
-                            <label class="usernameLabel" htmlFor="username">Username</label>
+                            <label htmlFor="username">Username</label>
                         </FloatLabel>
                         <FloatLabel class="password">
-                            <Password id="password" />
+                            <Password id="password"/>
                             <label htmlFor="password">Password</label>
                         </FloatLabel>
                         <Button class="submit" label="Submit" onClick={(e) => handleSubmit()}/>
                     </form>
                 </div>
             </div>
-        </body>
+        </div>
     )
 }
