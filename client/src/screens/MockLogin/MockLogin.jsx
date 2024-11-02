@@ -15,7 +15,7 @@ export default function MockLogin({onLogin}) {
             <h3>Welcome</h3>
             <div>
                 <h4>Log In</h4>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <FloatLabel>
                         <InputText id="username"/>
                         <label htmlFor="username">Username</label>
@@ -24,7 +24,7 @@ export default function MockLogin({onLogin}) {
                         <Password id="password"/>
                         <label htmlFor="password">Password</label>
                     </FloatLabel>
-                    <Button label="Submit"/>
+                    <Button label="Submit" type="submit"/>
                 </form>
             </div>
         </div>
