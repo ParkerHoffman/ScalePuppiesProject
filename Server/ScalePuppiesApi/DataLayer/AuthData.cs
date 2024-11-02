@@ -42,7 +42,14 @@ where u.Name = @user and u.Password = @pass and f.UserName = @farm;
 
             return new JsonResult(new { success = valid, UserID = userID });
         }
+        public static JsonResult CreateFarm()
+        {
+
+
+            return new JsonResult("");
+        }
     }
+
 
 
 }
