@@ -1,0 +1,39 @@
+.logInForm{
+    display:flex;
+    flex-direction: row;
+}
+
+.logInText{
+    flex:1;
+}
+
+.username{
+    display:flex;
+    flex:2;
+}
+
+.usernameLabel{
+    position: absolute;
+	font: inherit;
+	transition: transform 200ms;
+	transform-origin: top left;
+	color: gray;
+	pointer-events: none;
+	line-height: 1;
+	display: block;
+}
+
+.password{
+    display:flex;
+    flex:3;
+}
+
+.submit{
+    display:flex;
+    flex:4;
+}
+
+.welcomeText{
+    display:flex;
+}
+

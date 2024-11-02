@@ -2,6 +2,7 @@ import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password'
 import { FloatLabel } from 'primereact/floatlabel';
+import "./MockLogin.css";
 
 export default function MockLogin({onLogin}) {
 
@@ -11,22 +12,26 @@ export default function MockLogin({onLogin}) {
     }
 
     return (
-        <div>
-            <h3>Welcome</h3>
+        <body class="body">
+            <h1 style="font-family:Kaisei Tokumin;font-size:">HerdHarmony</h1>
+
             <div>
-                <h4>Log In</h4>
-                <form>
-                    <FloatLabel>
-                        <InputText id="username"/>
-                        <label htmlFor="username">Username</label>
-                    </FloatLabel>
-                    <FloatLabel>
-                        <Password id="password"/>
-                        <label htmlFor="password">Password</label>
-                    </FloatLabel>
-                    <Button label="Submit"/>
-                </form>
+                <h3 class="welcomeText">Welcome</h3>
+                    <div class="logInForm">
+                    <h4 class="logInText">Log In</h4>
+                    <form>
+                        <FloatLabel class="username">
+                            <InputText id="username" />
+                            <label class="usernameLabel" htmlFor="username">Username</label>
+                        </FloatLabel>
+                        <FloatLabel class="password">
+                            <Password id="password" />
+                            <label htmlFor="password">Password</label>
+                        </FloatLabel>
+                        <Button class="submit" label="Submit" onClick={(e) => handleSubmit()}/>
+                    </form>
+                </div>
             </div>
-        </div>
+        </body>
     )
 }
