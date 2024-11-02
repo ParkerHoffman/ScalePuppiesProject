@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 //The API url
-var url = 'https://scalepuppiesapi20241101213402.azurewebsites.net/Herd';
+var url = 'https://scalepuppiesapi20241101213402.azurewebsites.net/api';
 
 export async function post(endpoint, data){
 
@@ -21,7 +21,7 @@ export async function post(endpoint, data){
 
 
 export async function get(endpoint){
-    var response = await axios.post(`${url}/${endpoint}`).catch(() => {return null;});
+    var response = await axios.get(`${url}/${endpoint}`).catch(() => {return null;});
 
     if(!response){
         return null;
