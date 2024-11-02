@@ -45,5 +45,29 @@ namespace ScalePuppiesApi.DataLayer
 
             return new JsonResult(nameArray);
         }
+
+        public static JsonResult loginValidation(this DataBaseConnection context, int test)
+        {
+            DataSet ds = context.DoQuery(@"
+select *
+from gender_type
+where GenderTypeID = @ID; 
+", new MySqlParameter("@ID", test));
+            List<string> nameList = new List<string>();
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+
+                    if (row.Table.Columns.Contains("Description"))
+                    {
+                        nameList.Add(row["Description"].ToString());
+                    }
+                }
+            }
+
+            string[] nameArray = nameList.ToArray();
+            return new JsonResult(new { test = nameArray, test2 = "HelloWorld"});
+        }
     }
 }

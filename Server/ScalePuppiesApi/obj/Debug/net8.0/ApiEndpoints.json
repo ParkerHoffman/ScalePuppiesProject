@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "ScalePuppiesApi.Controllers.HerdController",
+    "Method": "Login",
+    "RelativePath": "Herd/login",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "test",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScalePuppiesApi.Controllers.HerdController",
     "Method": "PrintColumn1",
     "RelativePath": "Herd/print-column1",
     "HttpMethod": "GET",

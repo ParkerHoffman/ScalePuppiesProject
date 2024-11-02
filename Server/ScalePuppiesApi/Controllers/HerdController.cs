@@ -31,5 +31,13 @@ namespace ScalePuppiesApi.Controllers
             return context.testCol1();
         }
 
+        [HttpGet]
+        [Route("login")]
+        public async Task<JsonResult> Login([FromQuery] int test)
+        {
+
+            return context.loginValidation(test);
+        }
+
         }
     }
