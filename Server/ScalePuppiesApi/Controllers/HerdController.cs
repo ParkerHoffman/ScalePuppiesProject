@@ -12,23 +12,17 @@ namespace ScalePuppiesApi.Controllers
 
         private readonly DataBaseConnection context;
 
-        public HerdController(DataBaseConnection _context)
-        {
-            context = _context;
-        }
+            public HerdController(DataBaseConnection _context)
+            {
+                context = _context;
+            }
 
-        [HttpGet]
-        [Route("TestingCall")]
-        public JsonResult Testing()
-        {
-            return new JsonResult("Success");
-        }
 
-        [HttpGet("print-column1")]
-        public async Task<JsonResult> PrintColumn1()
-        {
-            Console.WriteLine("Hit Controller");
-            return context.testCol1();
-        }
+            [HttpGet]
+            [Route("GetHerds")]
+            public async Task<JsonResult> GetHerdList([FromQuery] int FarmID)
+            {
+            return context.GetHerdList(FarmID);
+            }
         }
     }

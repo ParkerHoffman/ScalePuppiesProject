@@ -16,29 +16,29 @@ namespace ScalePuppiesApi.DataLayer
 
         public static JsonResult testCol1(this DataBaseConnection context)
         {
-            
-                DataSet ds = context.DoQuery("Select Name from User where USerID = 2;");
 
-                List<string> nameList = new List<string>();
+            DataSet ds = context.DoQuery("Select Name from User where USerID = 2;");
 
-                Console.BackgroundColor = ConsoleColor.Magenta;
-                foreach (DataTable table in ds.Tables)
+            List<string> nameList = new List<string>();
+
+            Console.BackgroundColor = ConsoleColor.Magenta;
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow row in table.Rows)
                 {
-                    foreach (DataRow row in table.Rows)
-                    {
 
-                        Console.WriteLine("Hitting for");
-                        if (row.Table.Columns.Contains("Name"))
-                        {
-                            nameList.Add(row["Name"].ToString());
-                        }
+                    Console.WriteLine("Hitting for");
+                    if (row.Table.Columns.Contains("Name"))
+                    {
+                        nameList.Add(row["Name"].ToString());
                     }
                 }
+            }
 
-                string[] nameArray = nameList.ToArray();
+            string[] nameArray = nameList.ToArray();
 
-                
-            
+
+
             Console.WriteLine("Yes");
 
             context.DoQuery("Insert into User (Name, Password) Values (@a, @b);", new MySqlParameter("@a", "NateTesting"), new MySqlParameter("@b", "This does"));
@@ -46,10 +46,12 @@ namespace ScalePuppiesApi.DataLayer
 
             return new JsonResult(nameArray);
         }
+        
 
-        public static JsonResult CreateFarm()
+
+        public static JsonResult GetHerdList(this DataBaseConnection context, int FarmID)
         {
-            return new JsonResult("");
+            return new JsonResult(new { success = true });
         }
     }
 }
