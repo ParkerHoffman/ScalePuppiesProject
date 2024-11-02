@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "ScalePuppiesApi.Controllers.HerdController",
+    "ContainingType": "ScalePuppiesApi.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "Herd/login",
+    "RelativePath": "api/Auth/login",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

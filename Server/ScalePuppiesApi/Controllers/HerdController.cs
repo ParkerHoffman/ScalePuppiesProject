@@ -31,14 +31,6 @@ namespace ScalePuppiesApi.Controllers
             return context.testCol1();
         }
 
-        [HttpGet]
-        [Route("login")]
-        public async Task<JsonResult> Login([FromQuery] string FarmUsername, [FromQuery] string Username, [FromQuery] string password)
-        {
-
-            return context.loginValidation(FarmUsername, Username, password);
-        }
-
         /*
         [HttpPost]
         [Route("CreateFarm")]
