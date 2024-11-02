@@ -1,7 +1,7 @@
 import './App.css';
-import { React } from "react";
+import React, { useState } from "react";
 import { Outlet, useNavigate } from 'react-router-dom';
-import { MockLogin } from "./screens/MockLogin/MockLogin";
+import MockLogin from "./screens/MockLogin/MockLogin";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
