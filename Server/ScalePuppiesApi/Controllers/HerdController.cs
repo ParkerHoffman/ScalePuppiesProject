@@ -24,5 +24,14 @@ namespace ScalePuppiesApi.Controllers
             {
             return context.GetHerdList(FarmID);
             }
+
+
+        [HttpGet]
+        [Route("GetCow/{CowID}")]
+        public async Task<JsonResult> GetIndividualCow([FromRoute] int CowID)
+        {
+            return context.GetIndividualCow(CowID);
+        }
+
         }
     }
