@@ -74,10 +74,10 @@ function Register(){
                             <label className="passwordLabel" htmlFor="password">Password:</label>
                             <Password className="passwordInput" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>   
                         </div>
-                        <Button class="submit" label="Submit" onClick={(e) => checkLogin()}/>
-                        <div style={{marginTop: ".5em;"}}><b>No account? No problem!</b></div>
+                        <Button className="submit" label="Submit" onClick={(e) => checkLogin()}/>
+                        <div className="registerText" style={{marginTop: ".5em;"}}><b>No account? No problem!</b></div>
 
-                        <Button class="submit" label="Register" onClick={(e) => Register()}/>
+                        <Button className="register" label="Register" onClick={(e) => Register()}/>
 
                     </div>
                 </div>
