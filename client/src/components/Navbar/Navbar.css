@@ -1,9 +1,17 @@
 .logout-button {
-    justify-content: right;
-    align-items: right;
-    padding: 5px 10px;
+  justify-content: right;
+  align-items: right;
+  padding: 5px 10px;
+  float: left;
+  top: 18px;
+  margin-right: 10px;
 }
 
+.profileInfo {
+  float: left;
+}
+
+/* Adjusting component css from PrimeReact (no time to make a theme.css file :( )*/
 .p-menuitem {
     margin: 0 10px 0 5px;
 }

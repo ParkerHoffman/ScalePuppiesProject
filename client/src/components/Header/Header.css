@@ -18,16 +18,6 @@
     font-family: "Georgia", serif;
 }
 
-
 .motto{
     font-family: "Times New Roman", Times, serif;
-}
-
-.profileInfo{
-    display:flex;
-    flex-direction:row;
-}
-
-.profileAvatar{
-    margin-right: 900px;
 }

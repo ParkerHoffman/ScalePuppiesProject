@@ -3,7 +3,7 @@
     justify-content:center;
     align-items:center;
     background-color:#D0D5D2;
-    height:450px;
+    height:500px;
     width: 350px;
     margin-top: 70px;
     box-shadow: 5px 5px gray;
@@ -13,7 +13,7 @@
     display: grid;
     background-color:#FFFFFF;
     height: 325px;
-    margin: -50px 15px 15px 15px;
+    margin: -150px 15px 25px 15px;
     padding: 30px;
     border: #000000;
     border-style: solid;
@@ -22,6 +22,7 @@
 .logInText{
     text-align: center;
     margin-top: -15px;
+    margin-bottom: -50px
 }
 
 .logInFields{
@@ -73,7 +74,7 @@
 .welcomeText{
     display:flex;
     justify-content:center;
-    
+    margin: -50px 0px -100px 0px
 }
 
 .screen{
@@ -104,3 +105,14 @@
     font-family: "Times New Roman", Times, serif;
 }
 
+.registerText{
+    margin: 15px 0px 5px 30px;
+}
+
+.register{
+    margin: 5px 50px 0px 88px;
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

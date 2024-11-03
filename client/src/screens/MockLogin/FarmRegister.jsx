@@ -18,15 +18,46 @@ const [farmTitle, setFarmTitle] = useState("");
 
 
     async function Register() {
-        var response = await RegisterFarm(farmTitle, farmName, userName, password);
+        var invalid = 0;
+        //Vetting password
+        invalid = (password.match(/ /g) || []).length;
+        invalid += (password.match(/\//g) || []).length;
+        invalid += (password.match(/&/g) || []).length;
+        invalid += (password.match(/:/g) || []).length;
+        invalid += (password.match(/,/g) || []).length;
+        invalid += (password.match(/%/g) || []).length;
+
+        invalid += (farmName.match(/ /g) || []).length;
+        invalid += (farmName.match(/\//g) || []).length;
+        invalid += (farmName.match(/&/g) || []).length;
+        invalid += (farmName.match(/:/g) || []).length;
+        invalid += (farmName.match(/,/g) || []).length;
+        invalid += (farmName.match(/%/g) || []).length;
+
+        invalid += (userName.match(/ /g) || []).length;
+        invalid += (userName.match(/\//g) || []).length;
+        invalid += (userName.match(/&/g) || []).length;
+        invalid += (userName.match(/:/g) || []).length;
+        invalid += (userName.match(/,/g) || []).length;
+        invalid += (userName.match(/%/g) || []).length;
+
+
+        if(invalid === 0){
+
+            var lowerU = userName.toLowerCase();
+            var lowerF = farmName.toLowerCase();
+            var response = await RegisterFarm(farmTitle, lowerF, lowerU, password);
 
         
-        if(response.success === true){
-            setFarmID(response.userID);
-            setIsOwner(true);
-            navigate("/dashboard");
+            if(response === true){
+                setFarmID(response.userID);
+                setIsOwner(true);
+                navigate("/dashboard");
+            } else {
+                toast('error', 'Error Logging In', 'Please try again later')
+            }
         } else {
-            toast('error', 'Error Logging In', 'Please check your Farm Username, Username, and password')
+            toast('warn', 'No Special Characters', 'No special Characters are allowed in either username or Password. This includes spaces')
         }
     }
 
@@ -49,7 +80,7 @@ const [farmTitle, setFarmTitle] = useState("");
                     <h3 class="welcomeText">Welcome</h3> 
                 </div>
                 <div class="logInForm"> {/*log in form*/}
-                    <h4 class="logInText">Log In</h4>
+                    <h4 class="logInText">Register</h4>
                     <div class="logInFields">
                         {/*<FloatLabel class="farmName">
                             <InputText id="farmName"/>
@@ -81,8 +112,9 @@ const [farmTitle, setFarmTitle] = useState("");
                             <Password class="passwordInput" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>   
                         </div>
                         <Button class="submit" label="Submit" onClick={(e) => Register()}/>
-
+                            <div style={{marginTop:"-1.6em"}}>
                         <Button class="submit" label="Back" onClick={(e) => ReturntoLogIn()}/>
+                        </div>
                     </div>
                 </div>
             </div>
