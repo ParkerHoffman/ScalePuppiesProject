@@ -10,7 +10,7 @@ import { GlobalDataContext } from "../../context/GlobalDataContext";
 
 export default function MockLogin() {
     const navigate = useNavigate();
-    const { setFarmID, toast } = useContext(GlobalDataContext);
+    const { setFarmID, toast, setIsOwner } = useContext(GlobalDataContext);
 const [farmName, setFarmName] = useState("");
 const [userName, setUserName] = useState("");
 const [password, setPassword] = useState("");
@@ -26,6 +26,7 @@ console.log(response)
         
         if(response && response.success === true){
             setFarmID(response.userID);
+            setIsOwner(response.owner);
             navigate("/dashboard");
         } else {
             toast('error', 'Error Logging In', 'Please check your Farm Username, Username, and Password')

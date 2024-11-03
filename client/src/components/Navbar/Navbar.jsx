@@ -8,12 +8,16 @@ import { GlobalDataContext } from '../../context/GlobalDataContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
-    const {setFarmID} = useContext(GlobalDataContext);
+    const {setFarmID, isOwner} = useContext(GlobalDataContext);
     const navigate = useNavigate();
 
     function logOut() {
         setFarmID(null);
         navigate('/');
+    }
+
+    function EditUsers(){
+        navigate('/EditUsers')
     }
 
     const items = [
@@ -32,6 +36,7 @@ export default function Navbar() {
     const userBar = (
         <>
             <Button className="logout-button" label="Log Out" onClick={logOut}/>
+            {isOwner === true ? <Button className="logout-button" label="Edit Users" onClick={EditUsers}/> : null}
             <div className="profileInfo">
                 <Avatar className="user-avatar" label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
             </div>
