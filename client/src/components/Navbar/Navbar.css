@@ -1,0 +1,40 @@
+.logout-button {
+    justify-content: right;
+    align-items: right;
+    padding: 5px 10px;
+}
+
+.p-menuitem {
+    margin: 0 10px 0 5px;
+}
+
+.p-menubar {
+    background: #6E301D;
+    border: 1px solid #6E301D;
+}
+
+.p-menuitem-icon, .p-menuitem-text, .p-submenu-icon {
+    color: #ffffff;
+}
+
+.p-menubar .p-submenu-list {
+    background-color: #5f2918;
+    background: #5f2918;
+    border-radius: 2%;
+}
+
+.p-menubar .p-menuitem.p-highlight > .p-menuitem-content {
+    background-color: #682d1b;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
+    background-color: #682d1b;
+}
+
+.p-menubar .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
+    background-color: #682d1b;
+}
+
+.p-menubar .p-menubar-root-list > .p-menuitem:not(.p-highlight):not(.p-disabled) > .p-menuitem-content:hover {
+    background-color: #682d1b;
+}
