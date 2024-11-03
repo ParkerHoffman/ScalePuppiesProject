@@ -4,12 +4,13 @@ import { Password } from 'primereact/password'
 import { FloatLabel } from 'primereact/floatlabel';
 import { useNavigate } from 'react-router-dom';
 import "./MockLogin.css";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Login } from '../../Services/LoginService';
+import { GlobalDataContext } from "../../context/GlobalDataContext";
 
 export default function MockLogin() {
     const navigate = useNavigate();
-    
+    const { setFarmID,toast } = useContext(GlobalDataContext);
 const [farmName, setFarmName] = useState("");
 const [userName, setUserName] = useState("");
 const [password, setPassword] = useState("");
@@ -18,9 +19,12 @@ const [password, setPassword] = useState("");
     async function checkLogin() {
         var response = await Login(farmName, userName, password);
 
-        console.log(response);
+        
         if(response.success === true){
+            setFarmID(response.userID);
             navigate("/dashboard");
+        } else {
+            toast('erro', 'Error Logging In', 'Please check your Farm Username, Username, and password')
         }
     }
 
