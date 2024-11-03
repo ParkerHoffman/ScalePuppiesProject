@@ -39,11 +39,18 @@ namespace ScalePuppiesApi.Controllers
             return context.CreateNewUser(data.UserName, data.UserPassword, data.isSuperUser, FarmID);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("{FarmID}/GetUserList")]
         public async Task<JsonResult> GetUserList([FromRoute] int FarmID)
         {
             return context.GetUserList(FarmID);
+        }
+
+        [HttpGet]
+        [Route("{FarmID}/DeleteUser")]
+        public async Task<JsonResult> DeleteUser([FromQuery] int User)
+        {
+            return context.deleteUser(User);
         }
 
     }

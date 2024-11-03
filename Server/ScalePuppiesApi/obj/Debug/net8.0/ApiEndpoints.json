@@ -22,9 +22,30 @@
   },
   {
     "ContainingType": "ScalePuppiesApi.Controllers.AuthController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Auth/{FarmID}/DeleteUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "User",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "FarmID",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScalePuppiesApi.Controllers.AuthController",
     "Method": "GetUserList",
     "RelativePath": "api/Auth/{FarmID}/GetUserList",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [

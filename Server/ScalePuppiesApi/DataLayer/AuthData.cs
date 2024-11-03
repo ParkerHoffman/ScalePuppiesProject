@@ -70,13 +70,22 @@ insert into user(Name, Password, isSuperuser, isOwner, FarmID) values (@un, @up,
 
         public static JsonResult CreateNewUser(this DataBaseConnection context, string UserName, string UserPassword, bool isSuperUser, int FarmID)
         {
-            context.DoQuery(@"
+            try
+            {
+                context.DoQuery(@"
 insert into user (Name, Password, isSuperuser, isOwner, FarmID) values (@un, @up, @su, false, @f);
 ", new MySqlParameter("@un", UserName)
-, new MySqlParameter("@up", UserPassword)
-, new MySqlParameter("@su", isSuperUser)
-, new MySqlParameter("@f", FarmID));
-            return new JsonResult("");
+    , new MySqlParameter("@up", UserPassword)
+    , new MySqlParameter("@su", isSuperUser)
+    , new MySqlParameter("@f", FarmID));
+                return new JsonResult(true);
+            } catch (Exception E)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(E.Message);
+                Console.ForegroundColor = ConsoleColor.White;
+                return new JsonResult(false);
+            }
         }
 
 
@@ -123,8 +132,25 @@ insert into user (Name, Password, isSuperuser, isOwner, FarmID) values (@un, @up
 
         }
 
-    }
+
+
+        public static JsonResult deleteUser(this DataBaseConnection context, int userID)
+        {
+            try
+            {
+                context.DoQuery(@"Delete From User where userID = @user;", new MySqlParameter("@user", userID));
+                return new JsonResult(true);
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
+                return new JsonResult(false);
+            }
+        }
 
 
 
+    }// closing one
 }
