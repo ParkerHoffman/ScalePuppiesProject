@@ -5,6 +5,8 @@ import Header from '../../../components/Header/Header';
 import { ListBox } from 'primereact/listbox';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { useState, useContext } from 'react';
+import { Dropdown } from "primereact/dropdown";
          
 
 export default function Herds() {
@@ -24,6 +26,8 @@ export default function Herds() {
         }
     ];
 
+    const [selectedHerd, setSelectedHerd] = useState(null);
+
     const herdOpt = [
         {name:"herd1"},
         {name:"herd2"},
@@ -33,9 +37,12 @@ export default function Herds() {
     return (
         <>
             <Header/>
-            <div class="content">
-                <ListBox className="herdSelection" id="herdSelection" value={herdOpt} optionLabel="name"/>
- 
+            <div className="content">
+                <div className="select">
+                    <label className="herdSelectLabel" htmlFor="herdSelection">Select a Herd</label>
+                    <Dropdown className="herdSelection" id="herdSelection" value={selectedHerd} onChange={(e) => setSelectedHerd(e.target.value)} options={herdOpt} optionLabel="name"/>
+                </div>
+
                 <DataTable className="cowTable" value={herdList} tableStyle={{ minWidth: '50rem' }}>
                     <Column field="CowID" header="Cattle Tag"></Column>
                     <Column field="Breed" header="Breed"></Column>

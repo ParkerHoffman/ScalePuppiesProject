@@ -43,8 +43,17 @@
     flex-direction: column;
 }
 
-.herdSelection{
+.select{
+    display:flex;
+    flex-direction:column;
+    align-content: center;
+    margin: 20px 0px 10px 700px;
+    width: 150px;
+    border-style: solid;
+}
 
+.herdSelection{
+    height: 80%;
 }
 
 .cowTable{
