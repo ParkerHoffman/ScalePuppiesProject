@@ -66,8 +66,32 @@ export default function Dashboard() {
                             circular autoPlay transitionInterval={8000}/>
                     </div>
                 </div>
-                <div>
-
+                <div className="cowTips">
+                    <p className="cowTipHeader">Checks out these tips!</p>
+                    <ul className="cowTipsList" style={{listStyleType: 'none'}}>
+                        <li>Remember to rotate the pastures your herds are grazing in for fresh grass and to avoid the herds from overgrazing the fields.</li>
+                        <li>Keep detailed records of the cattle's health and breeding.</li>
+                        <li>Vaccinate your herds regulary to prevent disease outbreaks.</li>
+                        <li>Check the hooves of your cattle once a month to protect against affection and catch injuries early on.</li>
+                        <li>Check out advice from other farmers in your community.</li>
+                    </ul>
+                </div>
+                <div className="moreResources">
+                    <p className="resourceHeader">More resources:</p>
+                    <ul className="resourceList" style={{listStyleType: 'none'}}>
+                        <li>
+                            <a href="https://www.farmers.gov/">Farmers.gov</a>
+                        </li>
+                        <li>
+                            <a href="https://www.usda.gov/topics/farming/resources-small-and-mid-sized-farmers">USDA's Resources for Small and Medium Sized Farms</a>
+                        </li><li>
+                            <a href="https://www.fsa.usda.gov/programs-and-services/disaster-assistance-program">Farm Service Agency's Diaster Assistance</a>
+                        </li><li>
+                            <a href="https://www.tractorsupply.com/tsc/cms/life-out-here/the-barn/livestock/how-to-start-a-cow-farm">Tractor's Supply Co.'s Beginner's Guide to Cattle Farming</a>
+                        </li><li>
+                            <a href="https://www.agriculture.com/livestock/cattle/building-and-maintaining-a-cattle-farm">Successful Farming Journal</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </>

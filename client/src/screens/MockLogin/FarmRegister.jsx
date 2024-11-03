@@ -3,7 +3,7 @@ import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password'
 import { FloatLabel } from 'primereact/floatlabel';
 import { useNavigate } from 'react-router-dom';
-import "./MockLogin.css";
+import "./FarmRegister.css";
 import { useState, useContext } from 'react';
 import { RegisterFarm } from '../../Services/LoginService';
 import { GlobalDataContext } from "../../context/GlobalDataContext";
@@ -75,13 +75,10 @@ const [farmTitle, setFarmTitle] = useState("");
             </div>
 
             {/*Section of code containing the Welcome, and log in form */}
-            <div class="welcomeAndLogIn">
-                <div>
-                    <h3 class="welcomeText">Welcome</h3> 
-                </div>
-                <div class="logInForm"> {/*log in form*/}
-                    <h4 class="logInText">Register</h4>
-                    <div class="logInFields">
+            <div class="registerBox">
+                <div class="registerForm"> {/*log in form*/}
+                    <div class="registerFields">
+                        <h3>Register</h3>
                         {/*<FloatLabel class="farmName">
                             <InputText id="farmName"/>
                             <label htmlFor="farmName">Farm Name:</label>
@@ -95,25 +92,25 @@ const [farmTitle, setFarmTitle] = useState("");
                             <label htmlFor="password">Password:</label>
                         </FloatLabel>
                         */}
-                    <div class="farmName">
-                            <label class="farmNameLabel" htmlFor="farmName">Farm Username:</label>
-                            <InputText class="farmNameInput" id="farmName" placeholder="Farm Name" value={farmName} onChange={(e) => setFarmName(e.target.value)} />
+                    <div className="farmName">
+                            <label className="farmNameLabel" htmlFor="farmName">Farm Username:</label>
+                            <InputText className="farmNameInput" id="farmName" placeholder="Farm Name" value={farmName} onChange={(e) => setFarmName(e.target.value)} />
                         </div>
-                        <div class="farmName">
-                            <label class="farmNameLabel" htmlFor="farmTitle">Farm Name:</label>
-                            <InputText class="farmNameInput" id="farmTitle" placeholder="Farm Name" value={farmTitle} onChange={(e) => setFarmTitle(e.target.value)} />
+                        <div className="farmName">
+                            <label className="farmNameLabel" htmlFor="farmTitle">Farm Name:</label>
+                            <InputText className="farmNameInput" id="farmTitle" placeholder="Farm Name" value={farmTitle} onChange={(e) => setFarmTitle(e.target.value)} />
                         </div>
-                        <div class="username">
-                            <label class="usernameLabel" htmlFor="username">Username:</label>
-                            <InputText class="usernameInput" id="username" placeholder="Username" value={userName} onChange ={(e) => setUserName(e.target.value)} />
+                        <div className="username">
+                            <label className="usernameLabel" htmlFor="username">Username:</label>
+                            <InputText className="usernameInput" id="username" placeholder="Username" value={userName} onChange ={(e) => setUserName(e.target.value)} />
                         </div>
-                        <div class="password">
-                            <label class="passwordLabel" htmlFor="password">Password:</label>
-                            <Password class="passwordInput" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>   
+                        <div className="password">
+                            <label className="passwordLabel" htmlFor="password">Password:</label>
+                            <Password className="passwordInput" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>   
                         </div>
-                        <Button class="submit" label="Submit" onClick={(e) => Register()}/>
+                        <Button className="submit" label="Submit" onClick={(e) => Register()}/>
                             <div style={{marginTop:"-1.6em"}}>
-                        <Button class="submit" label="Back" onClick={(e) => ReturntoLogIn()}/>
+                        <Button className="backButton" label="Back" onClick={(e) => ReturntoLogIn()}/>
                         </div>
                     </div>
                 </div>
