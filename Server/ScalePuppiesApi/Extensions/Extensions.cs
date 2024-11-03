@@ -1,7 +1,5 @@
-﻿using System.Data;
-using System.Data.Common;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
 using ScalePuppiesApi.Models;
 
 namespace ScalePuppiesApi.Extensions
@@ -18,6 +16,25 @@ namespace ScalePuppiesApi.Extensions
             {
                 command.CommandText = SQLQuery;
                 command.CommandTimeout = 500;
+
+                //Add all of the provided parameters
+                foreach (MySqlParameter sqlParameter in sqlParameters)
+                {
+                    command.Parameters.Add(sqlParameter);
+                }
+
+                //Open a connection with the DB
+                context.Database.OpenConnection();
+
+                //Run the command with a temporary zone
+                using (var datadapter = new MySqlDataAdapter(command as MySqlCommand))
+                {
+                    datadapter.Fill(dataSet);
+                }
+
+                //Close the command
+                context.Database.CloseConnection();
+
             }
 
 
