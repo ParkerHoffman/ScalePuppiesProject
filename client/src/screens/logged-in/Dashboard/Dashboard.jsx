@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import Navbar from '../../../components/Navbar';
+import Navbar from '../../../components/Navbar/Navbar';
 import { Avatar } from 'primereact/avatar';
 import { Toast } from 'primereact/toast';
 import { ConfirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog /> component
