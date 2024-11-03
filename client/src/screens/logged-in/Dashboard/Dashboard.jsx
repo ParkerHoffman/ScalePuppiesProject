@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navbar from '../../../components/Navbar';
 import { Avatar } from 'primereact/avatar';
 import { Menubar } from 'primereact/menubar';
@@ -9,8 +9,17 @@ import { PanelMenu } from 'primereact/panelmenu';
 import { Menu } from 'primereact/menu';
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 import { Button } from 'primereact/button';
+import { GlobalDataContext } from '../../../context/GlobalDataContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
+const {farmID} = useContext(GlobalDataContext);
+const navigate = useNavigate();
+useEffect(() => {if(farmID === null){
+    navigate('/')
+}}, []);
+
+
     return (
         <>
             <div class="dashboardScreen">
