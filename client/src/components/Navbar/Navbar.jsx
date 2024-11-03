@@ -23,20 +23,9 @@ export default function Navbar() {
             url: '/dashboard',
         },
         {
-            label: 'Herds',
+            label: 'Herd Management',
             icon: 'pi pi-wrench',
-            items: [
-                {
-                    label: 'Herd Management',
-                    icon: 'pi pi-wrench',
-                    url: '/herds/manage'
-                },
-                {
-                    label: 'Herd History',
-                    icon: 'pi pi-book',
-                    url: '/herds/history'
-                }
-            ]
+            url: '/herds/manage'
         }
     ];
 
