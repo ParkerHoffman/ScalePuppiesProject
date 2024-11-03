@@ -8,7 +8,7 @@ import Herds from './screens/logged-in/Herds/Herds'
 import { useState } from 'react';
 import { GlobalDataProvider } from "./context/GlobalDataContext";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
-
+import UserManagement from './screens/MockLogin/UserManagement';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,6 +27,7 @@ function App() {
         <Route path="/herds/manage" element={<Herds/>}/>
         <Route path="/CreateFarm" element={<FarmRegister/>}/>
         <Route path="/herds/manage" element={<Herds/>}/>
+        <Route path="/EditUsers" element={<UserManagement />} />
       </Routes>
     </BrowserRouter>
     </GlobalDataProvider>

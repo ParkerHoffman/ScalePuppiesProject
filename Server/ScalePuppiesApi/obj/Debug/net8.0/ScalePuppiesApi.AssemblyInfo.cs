@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ScalePuppiesApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07d0e62cbb47ccc035f963da42e5c4b76285259d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a42519eef102aa5fcfbe1529988c07a3df9ee490")]
 [assembly: System.Reflection.AssemblyProductAttribute("ScalePuppiesApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ScalePuppiesApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
