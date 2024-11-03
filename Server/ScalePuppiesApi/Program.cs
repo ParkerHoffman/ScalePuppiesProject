@@ -1,16 +1,38 @@
 using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
 using ScalePuppiesApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddDbContext<DataBaseConnection>(options =>
+{
+
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+    var connString = new MySqlConnectionStringBuilder(connectionString)
+    {
+        SslCert = "Certificates/DigiCertGlobalRootCA.crt.pem",
+        SslMode = MySqlSslMode.Required
+    };
+
+    options.UseMySql(connString.ConnectionString, new MySqlServerVersion(new Version(8, 0, 21)));
+});
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<DataBaseConnectionContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReactApp",
+        builder => builder.WithOrigins("http://localhost:3000")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
+});
+
 
 var app = builder.Build();
 
@@ -22,6 +44,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowReactApp");
 
 app.UseAuthorization();
 
