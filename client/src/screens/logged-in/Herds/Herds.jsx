@@ -46,7 +46,7 @@ export default function Herds() {
 
             <div class="content">
 
-                <ListBox className="herdSelection" id="herdSelection" value={herdOpt} optionLabel="name"/>
+                <ListBox className="herdSelection" id="herdSelection" value={herdOpt} optionLabel="name" visibleOptions="true"/>
 
                 <DataTable className="cowTable" value={herdList} tableStyle={{ minWidth: '50rem' }}>
                     <Column field="CowID" header="Cattle Tag"></Column>
