@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Menubar } from 'primereact/menubar';
 import { Button } from 'primereact/button';
 import 'primeicons/primeicons.css';
 import './Navbar.css';
+import { GlobalDataContext } from '../../context/GlobalDataContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
+    const {setFarmID} = useContext(GlobalDataContext);
+    const navigate = useNavigate();
+
+    function logOut() {
+        setFarmID(null);
+        navigate('/');
+    }
+
     const items = [
         {
             label: 'Home',
@@ -30,7 +40,7 @@ export default function Navbar() {
     ];
 
     const userBar = (
-        <Button className="logout-button" label="Log Out"/>
+        <Button className="logout-button" label="Log Out" onClick={logOut}/>
     );
 
     return (
