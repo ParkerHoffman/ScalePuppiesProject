@@ -132,12 +132,11 @@ namespace ScalePuppiesApi.DataLayer
 
             DataSet ds = context.DoQuery(@"
 insert into cow(SireId, DameID, BuyingPrice, Breed, CurrentWeight, BirthWeight, WeaningWeight, SellingWeight, MedicalHistory, GeneticMarker, GenderTypeID, Gestation, PricePerPound, CowTag, DoB, PurchaseDate, LastBullInteraction)
-values (@sire, @dame, @age, @b$, @breed, @curWeight, @birWeight, @weaWeight, @selWeight, @medHis, @genMark, @cowType, @gesTime, @$perLb, @cowTag, @bDate, @pDate, @bulInter);
+values (@sire, @dame, @b$, @breed, @curWeight, @birWeight, @weaWeight, @selWeight, @medHis, @genMark, @cowType, @gesTime, @$perLb, @cowTag, @bDate, @pDate, @bulInter);
 set @newID = last_insert_id();
 select @newID as 'CowID';
 ", new MySqlParameter("@sire", moo.SireID)
 , new MySqlParameter("@dame", moo.DameID)
-, new MySqlParameter("@age", moo.age)
 , new MySqlParameter("@b$", moo.buyingPrice)
 , new MySqlParameter("@breed", moo.breed)
 , new MySqlParameter("@curWeight", moo.currentWeight)
@@ -154,15 +153,16 @@ select @newID as 'CowID';
 , new MySqlParameter("@pDate", moo.purchaseDate)
 , new MySqlParameter("@bulInter", moo.lastBullInter));
 
-            foreach (DataTable table in ds.Tables)
-            {
-                foreach (DataRow row in table.Rows)
-                {
-                    if (row.Table.Rows.Contains("CowID"))
-                    {
-                        returner = int.Parse(row["CowID"].ToString());
-                    }
-                }
+            DataTable cowTable = ds.Tables[0]; cowTable.PrimaryKey = new DataColumn[] { cowTable.Columns["CowID"] };
+
+            foreach (DataRow row in cowTable.Rows) 
+            { 
+                if (int.TryParse(row["CowID"].ToString(), out int cowID)) 
+                { 
+                    returner = cowID; 
+                } else {
+                    throw new Exception("The retrieved CowID is not in a correct format."); 
+                } 
             }
 
             return returner;

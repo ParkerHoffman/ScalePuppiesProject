@@ -83,7 +83,8 @@ insert into user (Name, Password, isSuperuser, isOwner, FarmID) values (@un, @up
     , new MySqlParameter("@su", isSuperUser)
     , new MySqlParameter("@f", FarmID));
                 return new JsonResult(true);
-            } catch (Exception E)
+            }
+            catch (Exception E)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(E.Message);

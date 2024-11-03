@@ -87,3 +87,4 @@ C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\bi
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\bin\Release\net8.0\runtimes\win-x64\native\krbcc64.dll
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\bin\Release\net8.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\obj\Release\net8.0\EFCoreMySqlJsonMicrosoft.cs
+C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\bin\Release\net8.0\Newtonsoft.Json.dll

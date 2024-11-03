@@ -38,6 +38,7 @@ C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\ob
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\obj\Release\net8.0\PubTmp\Out\Microsoft.SqlServer.Server.dll
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\obj\Release\net8.0\PubTmp\Out\MySql.Data.dll
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\obj\Release\net8.0\PubTmp\Out\MySqlConnector.dll
+C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\obj\Release\net8.0\PubTmp\Out\Newtonsoft.Json.dll
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\obj\Release\net8.0\PubTmp\Out\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\obj\Release\net8.0\PubTmp\Out\Pomelo.EntityFrameworkCore.MySql.Json.Microsoft.dll
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\obj\Release\net8.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
