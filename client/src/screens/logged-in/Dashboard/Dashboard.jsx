@@ -48,7 +48,7 @@ export default function Dashboard() {
     }}, []);
 
     const itemTemplate = (item) => {
-        return <img src={item.itemImageSrc} alt={item.alt} style={{ width: '100%' }} />
+        return <img src={item.itemImageSrc} alt={item.alt} style={{ width: '100%', height: '550px'}} />
     }
 
     const thumbnailTemplate = (item) => {
@@ -60,9 +60,10 @@ export default function Dashboard() {
             <div className="dashboardScreen">
                 <Header/>
                 <div className="banner">
-                    <div className="card">
-                        <Galleria value={images} numVisible={5} style={{ maxWidth: '640px' }} 
-                            item={itemTemplate} thumbnail={thumbnailTemplate} />
+                    <div className="card" style={{height: '100px'}}>
+                        <Galleria value={images} numVisible={5} style={{ maxWidth: '100%', maxHeight: '100px' }} 
+                            item={itemTemplate} thumbnail={thumbnailTemplate} showThumbnails={false} showItemNavigators={true}
+                            circular autoPlay transitionInterval={8000}/>
                     </div>
                 </div>
                 <div>

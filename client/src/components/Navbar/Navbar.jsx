@@ -42,16 +42,16 @@ export default function Navbar() {
 
     const userBar = (
         <>
-            <div className="profileInfo">
-                <Avatar label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
-            </div>
             <Button className="logout-button" label="Log Out" onClick={logOut}/>
+            <div className="profileInfo">
+                <Avatar className="user-avatar" label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
+            </div>
         </>
     );
 
     return (
         <div>
-            <Menubar style={{margin: '10px'}} model={items} end={userBar}/>
+            <Menubar style={{margin: '5px'}} model={items} end={userBar}/>
         </div>
     )
 }

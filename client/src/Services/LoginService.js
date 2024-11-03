@@ -11,10 +11,10 @@ export async function RegisterFarm(farmN, farmUN, un, pass){
     return (await post(`${AuthAPI}/CreateFarm`,
 
         {
-            farmName: farmN,
-            farmUserName: farmUN,
-            username: un,
-            password: pass
+            "farmName": farmN,
+            "farmUserName": farmUN,
+            "username": un,
+            "password": pass
         }
      ))?.data;
 }
