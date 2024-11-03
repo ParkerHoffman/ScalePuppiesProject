@@ -7,7 +7,6 @@ import Dashboard from './screens/logged-in/Dashboard/Dashboard';
 import Herds from './screens/logged-in/Herds/Herds'
 import { useState } from 'react';
 import { GlobalDataProvider } from "./context/GlobalDataContext";
-import Herds from "./screens/logged-in/Herds/Herds";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 
