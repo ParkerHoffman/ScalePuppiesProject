@@ -6,6 +6,7 @@ import FarmRegister from './screens/MockLogin/FarmRegister';
 import Dashboard from './screens/logged-in/Dashboard/Dashboard';
 import { useState } from 'react';
 import { GlobalDataProvider } from "./context/GlobalDataContext";
+import Herds from "./screens/logged-in/Herds/Herds";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 
@@ -22,10 +23,10 @@ function App() {
     <GlobalDataProvider>
     <BrowserRouter>
       <Routes>
-        
         <Route path="/" element={<MockLogin/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/CreateFarm" element={<FarmRegister/>}/>
+        <Route path="/herds/manage" element={<Herds/>}/>
       </Routes>
     </BrowserRouter>
     </GlobalDataProvider>

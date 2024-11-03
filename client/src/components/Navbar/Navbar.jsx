@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { Menubar } from 'primereact/menubar';
 import { Button } from 'primereact/button';
+import { Avatar } from 'primereact/avatar';
 import 'primeicons/primeicons.css';
 import './Navbar.css';
 import { GlobalDataContext } from '../../context/GlobalDataContext';
@@ -40,7 +41,12 @@ export default function Navbar() {
     ];
 
     const userBar = (
-        <Button className="logout-button" label="Log Out" onClick={logOut}/>
+        <>
+            <div className="profileInfo">
+                <Avatar label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
+            </div>
+            <Button className="logout-button" label="Log Out" onClick={logOut}/>
+        </>
     );
 
     return (
