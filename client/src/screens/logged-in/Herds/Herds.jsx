@@ -23,11 +23,15 @@ export default function Herds() {
     const [selectedHerd, setSelectedHerd] = useState(null);
     const [addCowDialogVisible, setAddCowDialogVisible] = useState(false);
     const [addHerdDialogVisible, setAddHerdDialogVisible] = useState(false);
+    const [deleteHerdDialogVisible, setDeleteHerdDialogVisible] = useState(false);
     const [ newHerd, setNewHerd ] = useState({});
     const [ newCow, setNewCow ] = useState({});
     const [ cattleTag, setCattleTag ] = useState(null);
     const [ cowBreed, setCowBreed ] = useState("");
     const [ cowGender, setCowGender ] = useState("");
+    const [ herdLocation, setHerdLocation ] = useState("");
+    const [ herdType, setHerdType ] = useState("");
+    const [ comments, setComments ] = useState("");
 
 
     useEffect(() => {
@@ -83,29 +87,22 @@ export default function Herds() {
 
     const addCowFooter = (
             <div>
-                <Button label="Submit"/>
+                <Button label="Submit" onClick={onHideAddCowDialog}/>
                 <Button label="Cancel" onClick={onHideAddCowDialog}/>
             </div>
     );
 
     const addHerdFooter = (
             <div>
-                <Button label="Submit"/>
+                <Button label="Submit" onClick={onHideAddHerdDialog}/>
                 <Button label="Cancel" onClick={onHideAddHerdDialog}/>
             </div>
     );
 
     const removeHerdFooter = (
         <div>
-            <Button label="Yes"/>
-            <Button label="No"/>
-        </div>
-    );
-
-    const removeCowFooter = (
-        <div>
-            <Button label="Yes"/>
-            <Button label="No"/>
+            <Button label="Yes" onClick={() => setDeleteHerdDialogVisible(false)}/>
+            <Button label="No" onClick={() => setDeleteHerdDialogVisible(false)}/>
         </div>
     );
 
@@ -125,8 +122,8 @@ export default function Herds() {
                 </DataTable>
 
                 <div className="buttons">
-                    <Button id="newHerdButton" className="newHerdButton" label="Create New Herd" />
-                    <Button id="deleteHerdButton" className="deleteHerdButton" label="Delete Herd" />
+                    <Button id="newHerdButton" className="newHerdButton" label="Create New Herd" onClick={() => setAddHerdDialogVisible(true)}/>
+                    <Button id="deleteHerdButton" className="deleteHerdButton" label="Delete Herd" onClick={() => setDeleteHerdDialogVisible(true)}/>
                     <Button id="addCowButton" className="addCowButton" label="Add New Cow" onClick={() => setAddCowDialogVisible(true)}/>
                 </div>
 
@@ -165,15 +162,15 @@ export default function Herds() {
                         <div>
                             <div>
                                 <FloatLabel>
-                                    <InputText/>
-                                    <label htmlFor=""></label>
+                                    <InputText id="herdLocation" value={herdLocation} onChange={(e) => setHerdLocation(e.target.value)}/>
+                                    <label htmlFor="herdLocation">Herd Location</label>
                                 </FloatLabel>
                                 <FloatLabel>
-                                    <InputText/>
-                                    <label htmlFor=""></label>
+                                    <InputTextarea id="comments" value={comments} onChange={(e) => setComments(e.target.value)}/>
+                                    <label htmlFor="comments">Comments</label>
                                 </FloatLabel>
                                 <FloatLabel>
-                                    <InputText/>
+                                    <InputText id="herdType" value={herdType} onChange={(e) => setHerdType(e.target.value)}/>
                                     <label htmlFor="herdType">Herd Type</label>
                                 </FloatLabel>
                             </div>
@@ -181,23 +178,14 @@ export default function Herds() {
                     </Dialog>
                         
                     <Dialog id="removeHerdDialog"
+                        header="Remove Herd"
                         footer={removeHerdFooter}
+                        visible={deleteHerdDialogVisible}
+                        onHide={() => setDeleteHerdDialogVisible(false)}
                     >
                         <div>
                             <p>Are you sure you want to remove this herd?</p>
                             <p>Selected Herd: </p>
-                        </div>
-                    </Dialog>
-
-                    <Dialog id="removeCowDialog">
-                        <div>
-                            <p>Are you sure you want to remove this cow?</p>
-                            <p>Selected Cow: </p>
-                            <div style={{backgroundColor: "lightgray"}}>
-                                <p>Cattle Tag: </p>
-                                <p>Breed: </p>
-                                <p>Gender: </p>
-                            </div>
                         </div>
                     </Dialog>
 
