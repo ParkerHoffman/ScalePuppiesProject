@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\ScalePuppiesApi.csproj": {}
+    "C:\\Users\\parkh\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\ScalePuppiesApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\ScalePuppiesApi.csproj": {
+    "C:\\Users\\parkh\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\ScalePuppiesApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\ScalePuppiesApi.csproj",
+        "projectUniqueName": "C:\\Users\\parkh\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\ScalePuppiesApi.csproj",
         "projectName": "ScalePuppiesApi",
-        "projectPath": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\ScalePuppiesApi.csproj",
-        "packagesPath": "C:\\Users\\User3639\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\obj\\",
+        "projectPath": "C:\\Users\\parkh\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\ScalePuppiesApi.csproj",
+        "packagesPath": "C:\\Users\\parkh\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\parkh\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User3639\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\parkh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -69,6 +69,10 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[9.1.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Pomelo.EntityFrameworkCore.MySql.Json.Microsoft": {
               "target": "Package",
