@@ -2,13 +2,26 @@ import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password'
 import { FloatLabel } from 'primereact/floatlabel';
+import { useNavigate } from 'react-router-dom';
 import "./MockLogin.css";
+import { useState } from 'react';
+import { Login } from '../../Services/LoginService';
 
-export default function MockLogin({onLogin}) {
+export default function MockLogin() {
+    const navigate = useNavigate();
+    
+const [farmName, setFarmName] = useState("");
+const [userName, setUserName] = useState("");
+const [password, setPassword] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onLogin();
+
+    async function checkLogin() {
+        var response = await Login(farmName, userName, password);
+
+        console.log(response);
+        if(response.success === true){
+            navigate("/dashboard");
+        }
     }
 
     return (
@@ -27,7 +40,7 @@ export default function MockLogin({onLogin}) {
                 </div>
                 <div class="logInForm"> {/*log in form*/}
                     <h4 class="logInText">Log In</h4>
-                    <form class="logInFields">
+                    <div class="logInFields">
                         {/*<FloatLabel class="farmName">
                             <InputText id="farmName"/>
                             <label htmlFor="farmName">Farm Name:</label>
@@ -54,7 +67,7 @@ export default function MockLogin({onLogin}) {
                             <Password className="passwordInput" id="password" placeholder="Password"/>   
                         </div>
                         <Button className="submit" label="Submit" onClick={(e) => handleSubmit()}/>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

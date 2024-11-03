@@ -1,3 +1,5 @@
+import React from 'react';
+import Navbar from '../../../components/Navbar';
 import { Avatar } from 'primereact/avatar';
 import { Menubar } from 'primereact/menubar';
 import { Toast } from 'primereact/toast';
@@ -39,6 +41,9 @@ export default function Dashboard() {
                     </div>
                     <div className="navigation"> navigation
                         <PanelMenu className="navigationMenu"/>
+                    </div>
+                    <div id="navigation">
+                        <Navbar/>
                     </div>
                 </div>
             </div>
