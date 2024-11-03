@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using ScalePuppiesApi.DataLayer;
 using ScalePuppiesApi.Models;
 
@@ -12,19 +11,30 @@ namespace ScalePuppiesApi.Controllers
 
         private readonly DataBaseConnection context;
 
-            public HerdController(DataBaseConnection _context)
-            {
-                context = _context;
-            }
+        public HerdController(DataBaseConnection _context)
+        {
+            context = _context;
+        }
 
 
-            [HttpGet]
-            [Route("GetHerds")]
-            public async Task<JsonResult> GetHerdList([FromQuery] int FarmID)
-            {
+        [HttpGet]
+        [Route("Get")]
+
+
+
+        [HttpGet]
+        [Route("GetHerds")]
+        public async Task<JsonResult> GetHerdList([FromQuery] int FarmID)
+        {
             return new JsonResult(context.GetHerdList(FarmID));
-            }
+        }
 
+        [HttpGet]
+        [Route("GetHerd/{HerdID}")]
+        public async Task<JsonResult> GetIndividualHerd([FromRoute] int HerdID)
+        {
+            return new JsonResult(context.GetIndividualHerd(HerdID));
+        }
 
         [HttpGet]
         [Route("GetCow/{CowID}")]
@@ -33,5 +43,5 @@ namespace ScalePuppiesApi.Controllers
             return new JsonResult(context.GetIndividualCow(CowID));
         }
 
-        }
     }
+}

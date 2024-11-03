@@ -1,14 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Storage.Json;
+using MySqlConnector;
 using ScalePuppiesApi.Extensions;
 using ScalePuppiesApi.Models;
 using System.Data;
-using System.Runtime.CompilerServices;
-using Microsoft.Data.SqlClient;
-using Pomelo.EntityFrameworkCore;
-using MySqlConnector;
-using static System.Net.Mime.MediaTypeNames;
-using System.Collections.Generic;
 
 namespace ScalePuppiesApi.DataLayer
 {
@@ -47,12 +41,12 @@ namespace ScalePuppiesApi.DataLayer
 
             return new JsonResult(nameArray);
         }
-        
+
 
 
         public static object GetHerdList(this DataBaseConnection context, int FarmID)
         {
-            
+
             DataSet ds = context.DoQuery(@"
                 select herd.*, f.Name
                 from herd left join farm f on herd.FarmID = f.FarmID
@@ -129,9 +123,13 @@ namespace ScalePuppiesApi.DataLayer
                 }
             }
 
-            return new { success = true, HerdID = herdID, Location = loc, Comment = com, HerdType = herdType, CowInfo = cowInfo,  };
+            return new { success = true, HerdID = herdID, Location = loc, Comment = com, HerdType = herdType, CowInfo = cowInfo, };
         }
 
+        public static object CreateNewCow(this DataBaseConnection connection, int herdID)
+        {
+            return new { };
+        }
 
         public static object GetIndividualCow(this DataBaseConnection context, int CowID)
         {
@@ -262,9 +260,9 @@ namespace ScalePuppiesApi.DataLayer
                 if (currentDate.DayOfYear < holder.DayOfYear) { age--; }
             }
 
-            return new { success = true, cowAge = age, LastBullInteraction = lastBullInter, PurchaseDate = purchaseDate, BirthDate = birthDate, CowType = CowType, PricePerPound = pricePerPound, GestationPeriod = gestPeriod , GeneticMarker = genMarker,  MedicalHistory = medHistory, SellingWeight = sellWeight, WeaningWeight = weanWeight, BirthWeight = birthWeight, CurrentWeight = currentWeight, Breed = breed, BuyingPrice = buyingPrice, DameID = damID, SireID = sireID, CowTag = cowTag };
-
-
+            return new { success = true, cowAge = age, LastBullInteraction = lastBullInter, PurchaseDate = purchaseDate, BirthDate = birthDate, CowType = CowType, PricePerPound = pricePerPound, GestationPeriod = gestPeriod, GeneticMarker = genMarker, MedicalHistory = medHistory, SellingWeight = sellWeight, WeaningWeight = weanWeight, BirthWeight = birthWeight, CurrentWeight = currentWeight, Breed = breed, BuyingPrice = buyingPrice, DameID = damID, SireID = sireID, CowTag = cowTag };
         }
+
+
     }
 }

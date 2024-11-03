@@ -1,5 +1,5 @@
-﻿using MySqlConnector;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
 using ScalePuppiesApi.Models;
 using System.Data;
 using System.Data.Common;
@@ -40,7 +40,7 @@ namespace ScalePuppiesApi.Extensions
 
                 //Close the command
                 context.Database.CloseConnection();
-                
+
             }
 
 

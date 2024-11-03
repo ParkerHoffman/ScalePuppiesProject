@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-using ScalePuppiesApi.Models;
+﻿using ScalePuppiesApi.Models;
 
 namespace ScalePuppiesApi.BussinessLogic
 {

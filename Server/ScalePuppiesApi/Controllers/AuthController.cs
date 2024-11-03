@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using ScalePuppiesApi.Models;
+﻿using Microsoft.AspNetCore.Mvc;
 using ScalePuppiesApi.DataLayer;
 using ScalePuppiesApi.DataTransferObjects;
+using ScalePuppiesApi.Models;
 
 namespace ScalePuppiesApi.Controllers
 {
@@ -25,7 +24,7 @@ namespace ScalePuppiesApi.Controllers
             return context.loginValidation(FarmUsername, Username, password);
         }
 
-        
+
         [HttpPost]
         [Route("CreateFarm")]
         public async Task<JsonResult> CreateFarm([FromBody] FarmCreationDTO data)

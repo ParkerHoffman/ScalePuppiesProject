@@ -1,14 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Storage.Json;
+using MySqlConnector;
 using ScalePuppiesApi.Extensions;
 using ScalePuppiesApi.Models;
 using System.Data;
-using System.Runtime.CompilerServices;
-using Microsoft.Data.SqlClient;
-using Pomelo.EntityFrameworkCore;
-using MySqlConnector;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ScalePuppiesApi.DataLayer
 {
@@ -68,7 +62,8 @@ insert into user(Name, Password, isSuperuser, isOwner, FarmID) values (@un, @up,
 , new MySqlParameter("@un", UserName)
 , new MySqlParameter("@up", UserPassword));
                 valid = true;
-            } catch (Exception e) { Console.WriteLine(e.Message); }
+            }
+            catch (Exception e) { Console.WriteLine(e.Message); }
 
             return new JsonResult(valid);
         }
