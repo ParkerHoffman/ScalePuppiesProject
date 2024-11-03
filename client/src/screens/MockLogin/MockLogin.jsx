@@ -34,21 +34,21 @@ console.log(response)
 
     return (
 
-         <div class="screen">
+         <div className="screen">
              {/*Header code*/}
-            <div class="header">
-            <h1 class="headerText">HerdHarmony</h1>
-            <p class="motto">Created to create harmony in and between your herds</p>
+            <div className="header">
+            <h1 className="headerText">HerdHarmony</h1>
+            <p className="motto">Created to create harmony in and between your herds</p>
             </div>
 
             {/*Section of code containing the Welcome, and log in form */}
-            <div class="welcomeAndLogIn">
+            <div className="welcomeAndLogIn">
                 <div>
-                    <h3 class="welcomeText">Welcome</h3> 
+                    <h3 className="welcomeText">Welcome</h3> 
                 </div>
-                <div class="logInForm"> {/*log in form*/}
-                    <h4 class="logInText">Log In</h4>
-                    <div class="logInFields">
+                <div className="logInForm"> {/*log in form*/}
+                    <h4 className="logInText">Log In</h4>
+                    <div className="logInFields">
                         {/*<FloatLabel class="farmName">
                             <InputText id="farmName"/>
                             <label htmlFor="farmName">Farm Name:</label>
