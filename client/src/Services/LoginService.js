@@ -23,3 +23,7 @@ export async function RegisterFarm(farmN, farmUN, un, pass){
 export async function GetUserList(FarmID){
     return (await get(`${AuthAPI}/${FarmID}/GetUserList`))?.data
 }
+
+export async function DeleteUser(FarmID, uID){
+    return (await get(`${AuthAPI}/${FarmID}/DeleteUser?User=${uID}`))?.data
+}
