@@ -22,7 +22,7 @@ namespace ScalePuppiesApi.Controllers
             [Route("GetHerds")]
             public async Task<JsonResult> GetHerdList([FromQuery] int FarmID)
             {
-            return context.GetHerdList(FarmID);
+            return new JsonResult(context.GetHerdList(FarmID));
             }
 
 
@@ -30,7 +30,7 @@ namespace ScalePuppiesApi.Controllers
         [Route("GetCow/{CowID}")]
         public async Task<JsonResult> GetIndividualCow([FromRoute] int CowID)
         {
-            return context.GetIndividualCow(CowID);
+            return new JsonResult(context.GetIndividualCow(CowID));
         }
 
         }

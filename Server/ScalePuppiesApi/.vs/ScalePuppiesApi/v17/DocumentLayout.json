@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5932B598-B265-4197-BB82-5B2CE4863DB9}|ScalePuppiesApi.csproj|c:\\users\\user3639\\documents\\github\\scalepuppiesproject\\server\\scalepuppiesapi\\datalayer\\herddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5932B598-B265-4197-BB82-5B2CE4863DB9}|ScalePuppiesApi.csproj|solutionrelative:datalayer\\herddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5932B598-B265-4197-BB82-5B2CE4863DB9}|ScalePuppiesApi.csproj|c:\\users\\user3639\\documents\\github\\scalepuppiesproject\\server\\scalepuppiesapi\\controllers\\herdcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5932B598-B265-4197-BB82-5B2CE4863DB9}|ScalePuppiesApi.csproj|solutionrelative:controllers\\herdcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5932B598-B265-4197-BB82-5B2CE4863DB9}|ScalePuppiesApi.csproj|c:\\users\\user3639\\documents\\github\\scalepuppiesproject\\server\\scalepuppiesapi\\datalayer\\authdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5932B598-B265-4197-BB82-5B2CE4863DB9}|ScalePuppiesApi.csproj|solutionrelative:datalayer\\authdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5932B598-B265-4197-BB82-5B2CE4863DB9}|ScalePuppiesApi.csproj|c:\\users\\user3639\\documents\\github\\scalepuppiesproject\\server\\scalepuppiesapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5932B598-B265-4197-BB82-5B2CE4863DB9}|ScalePuppiesApi.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5932B598-B265-4197-BB82-5B2CE4863DB9}|ScalePuppiesApi.csproj|c:\\users\\user3639\\documents\\github\\scalepuppiesproject\\server\\scalepuppiesapi\\datatransferobjects\\usercreationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5932B598-B265-4197-BB82-5B2CE4863DB9}|ScalePuppiesApi.csproj|solutionrelative:datatransferobjects\\usercreationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UserCreationDTO.cs",
-              "DocumentMoniker": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\DataTransferObjects\\UserCreationDTO.cs",
-              "RelativeDocumentMoniker": "DataTransferObjects\\UserCreationDTO.cs",
-              "ToolTip": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\DataTransferObjects\\UserCreationDTO.cs",
-              "RelativeToolTip": "DataTransferObjects\\UserCreationDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T20:10:58.422Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "AuthData.cs",
               "DocumentMoniker": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\DataLayer\\AuthData.cs",
               "RelativeDocumentMoniker": "DataLayer\\AuthData.cs",
               "ToolTip": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\DataLayer\\AuthData.cs",
               "RelativeToolTip": "DataLayer\\AuthData.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA+wC8AAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwCsAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T18:49:04.114Z",
+              "WhenOpened": "2024-11-02T22:21:30.601Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwCgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T18:48:12.202Z",
+              "WhenOpened": "2024-11-02T22:20:03.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HerdController.cs",
+              "DocumentMoniker": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\Controllers\\HerdController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HerdController.cs",
+              "ToolTip": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\Controllers\\HerdController.cs",
+              "RelativeToolTip": "Controllers\\HerdController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBgAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T21:49:48.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HerdData.cs",
+              "DocumentMoniker": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\DataLayer\\HerdData.cs",
+              "RelativeDocumentMoniker": "DataLayer\\HerdData.cs",
+              "ToolTip": "C:\\Users\\User3639\\Documents\\GitHub\\ScalePuppiesProject\\Server\\ScalePuppiesApi\\DataLayer\\HerdData.cs*",
+              "RelativeToolTip": "DataLayer\\HerdData.cs*",
+              "ViewState": "AgIAAIwAAAAAAAAAAAAkwJIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T21:49:47.195Z",
               "EditorCaption": ""
             }
           ]

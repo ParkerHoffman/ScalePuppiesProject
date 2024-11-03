@@ -8,6 +8,7 @@ using Microsoft.Data.SqlClient;
 using Pomelo.EntityFrameworkCore;
 using MySqlConnector;
 using static System.Net.Mime.MediaTypeNames;
+using System.Collections.Generic;
 
 namespace ScalePuppiesApi.DataLayer
 {
@@ -49,63 +50,139 @@ namespace ScalePuppiesApi.DataLayer
         
 
 
-        public static JsonResult GetHerdList(this DataBaseConnection context, int FarmID)
+        public static object GetHerdList(this DataBaseConnection context, int FarmID)
         {
             
             DataSet ds = context.DoQuery(@"
-                Select 
+                select herd.*, f.Name
+                from herd left join farm f on herd.FarmID = f.FarmID
+                where herd.FarmID = @ID;
             ", new MySqlParameter("@ID", FarmID));
-            
+
+            string farmName = "";
+
+            DataTable herdInfo = ds.Tables[0];
+            List<object> herdList = new List<object>();
+            foreach (DataRow row in herdInfo.Rows)
+            {
+                if (row.Table.Columns.Contains("HerdID"))
+                {
+                    herdList.Add(context.GetIndividualHerd(int.Parse(row["HerdID"].ToString())));
+                }
+                if (row.Table.Columns.Contains("Name"))
+                {
+                    farmName = row["Name"].ToString();
+                }
+            }
+
             return new JsonResult(new { success = true });
         }
 
+        public static object GetIndividualHerd(this DataBaseConnection context, int HerdID)
+        {
+            DataSet ds = context.DoQuery(@"
+                select herd.*, t.Description
+                from herd left join herd_type t on herd.HerdTypeID = t.HerdTypeID
+                where HerdID = @ID;
 
-        public static JsonResult GetIndividualCow(this DataBaseConnection context, int CowID)
+                select h.CowID
+                from herd 
+                left join history h on herd.HerdID = h.HerdID
+                where herd.HerdID = @ID and (h.EndDate is null or h.EndDate < curdate());
+            ", new MySqlParameter("@ID", HerdID));
+
+            DataTable herdInfo = ds.Tables[0];
+            DataTable cowInfo = ds.Tables[1];
+
+            int herdID = 0;
+            string loc = "";
+            string com = "";
+            string herdType = "";
+
+            foreach (DataRow row in herdInfo.Rows)
+            {
+                if (row.Table.Columns.Contains("HerdID"))
+                {
+                    herdID = int.Parse(row["HerdID"].ToString());
+                }
+                if (row.Table.Columns.Contains("Location"))
+                {
+                    loc = row["Location"].ToString();
+                }
+                if (row.Table.Columns.Contains("Comment"))
+                {
+                    com = row["Comment"].ToString();
+                }
+                if (row.Table.Columns.Contains("Description"))
+                {
+                    herdType = row["Description"].ToString();
+                }
+            }
+
+
+            List<object> cowList = new List<object>();
+            foreach (DataRow row in cowInfo.Rows)
+            {
+                if (row.Table.Columns.Contains("CowID"))
+                {
+                    cowList.Add(context.GetIndividualCow(int.Parse(row["CowID"].ToString())));
+                }
+            }
+
+            return new { success = true, HerdID = herdID, Location = loc, Comment = com, HerdType = herdType, CowInfo = cowInfo,  };
+        }
+
+
+        public static object GetIndividualCow(this DataBaseConnection context, int CowID)
         {
             DataSet ds = context.DoQuery(@"
                 Select SireID, DameID, DoB, PurchaseDate, BuyingPrice, Breed
                 , CurrentWeight, BirthWeight, WeaningWeight, SellingWeight
-                , MedicalHistory,geneticMarker, LastBullInteraction, Gestation, PricePerPound, g.Description as 'CowType'
+                , MedicalHistory,geneticMarker, LastBullInteraction, Gestation, PricePerPound, CowTag, g.Description as 'CowType'
                     From Cow left join Gender_Type g on cow.GenderTypeID = g.GenderTypeID
                     Where CowID = @cowID;"
             , new MySqlParameter("@cowID", CowID));
 
 
-            int sireID = -1;
-            int damID = -1;
-            double buyingPrice = -1.0;
-            string breed = "";
-            double currentWeight = -1.0;
-            double birthWeight = -1.0;
-            double weanWeight = -1.0;
-            double sellWeight = -1.0;
-            string medHistory = "";
-            string genMarker = "";
+            int? sireID = -1;
+            int? damID = -1;
+            int? age = -1;
+            double? buyingPrice = -1.0;
+            string? breed = "";
+            double? currentWeight = -1.0;
+            double? birthWeight = -1.0;
+            double? weanWeight = -1.0;
+            double? sellWeight = -1.0;
+            string? medHistory = "";
+            string? genMarker = "";
             string CowType = "";
-            int gestPeriod = -1;
-            double pricePerPound = -1.0;
-            DateOnly birthDate = new DateOnly();
-            DateOnly purchaseDate = new DateOnly();
-            DateOnly lastBullInter = new DateOnly();
+            int? gestPeriod = -1;
+            double? pricePerPound = -1.0;
+            string? cowTag = "";
+            DateOnly? birthDate = new DateOnly();
+            DateOnly? purchaseDate = new DateOnly();
+            DateOnly? lastBullInter = new DateOnly();
 
-            
+
 
             foreach (DataTable table in ds.Tables)
             {
                 foreach (DataRow row in table.Rows)
                 {
-
                     if (row.Table.Columns.Contains("SireID"))
                     {
-                        sireID = int.Parse(row["SireID"].ToString());
+                        int.TryParse(row["SireID"].ToString(), out int tempSireID);
+                        sireID = tempSireID;
                     }
                     if (row.Table.Columns.Contains("DameID"))
                     {
-                        damID = int.Parse(row["DameID"].ToString());
+                        int.TryParse(row["DameID"].ToString(), out int tempDamID);
+                        damID = tempDamID;
                     }
                     if (row.Table.Columns.Contains("BuyingPrice"))
                     {
-                        buyingPrice = double.Parse(row["BuyingPrice"].ToString());
+                        double.TryParse(row["BuyingPrice"].ToString(), out double tempBuyingPrice);
+                        buyingPrice = tempBuyingPrice;
                     }
                     if (row.Table.Columns.Contains("Breed"))
                     {
@@ -113,19 +190,23 @@ namespace ScalePuppiesApi.DataLayer
                     }
                     if (row.Table.Columns.Contains("CurrentWeight"))
                     {
-                        currentWeight = double.Parse(row["CurrentWeight"].ToString());
+                        double.TryParse(row["CurrentWeight"].ToString(), out double tempCurrentWeight);
+                        currentWeight = tempCurrentWeight;
                     }
                     if (row.Table.Columns.Contains("BirthWeight"))
                     {
-                        birthWeight = double.Parse(row["BirthWeight"].ToString());
+                        double.TryParse(row["BirthWeight"].ToString(), out double tempBirthWeight);
+                        birthWeight = tempBirthWeight;
                     }
                     if (row.Table.Columns.Contains("WeaningWeight"))
                     {
-                        weanWeight = double.Parse(row["WeaningWeight"].ToString());
+                        double.TryParse(row["WeaningWeight"].ToString(), out double tempWeanWeight);
+                        weanWeight = tempWeanWeight;
                     }
                     if (row.Table.Columns.Contains("SellingWeight"))
                     {
-                        sellWeight = double.Parse(row["SellingWeight"].ToString());
+                        double.TryParse(row["SellingWeight"].ToString(), out double tempSellWeight);
+                        sellWeight = tempSellWeight;
                     }
                     if (row.Table.Columns.Contains("MedicalHistory"))
                     {
@@ -133,16 +214,17 @@ namespace ScalePuppiesApi.DataLayer
                     }
                     if (row.Table.Columns.Contains("geneticMarker"))
                     {
-
                         genMarker = row["geneticMarker"].ToString();
                     }
                     if (row.Table.Columns.Contains("Gestation"))
                     {
-                        gestPeriod = int.Parse(row["Gestation"].ToString());
+                        int.TryParse(row["Gestation"].ToString(), out int tempGestPeriod);
+                        gestPeriod = tempGestPeriod;
                     }
                     if (row.Table.Columns.Contains("PricePerPound"))
                     {
-                        pricePerPound = double.Parse(row["PricePerPound"].ToString());
+                        double.TryParse(row["PricePerPound"].ToString(), out double tempPricePerPound);
+                        pricePerPound = tempPricePerPound;
                     }
                     if (row.Table.Columns.Contains("CowType"))
                     {
@@ -150,25 +232,37 @@ namespace ScalePuppiesApi.DataLayer
                     }
                     if (row.Table.Columns.Contains("DoB"))
                     {
-                        birthDate = DateOnly.Parse(row["DoB"].ToString());
+                        DateOnly.TryParse(row["DoB"].ToString(), out DateOnly tempBirthDate);
+                        birthDate = tempBirthDate;
                     }
                     if (row.Table.Columns.Contains("PurchaseDate"))
                     {
-                        purchaseDate = DateOnly.Parse(row["PurchaseDate"].ToString());
+                        DateOnly.TryParse(row["PurchaseDate"].ToString(), out DateOnly tempPurchaseDate);
+                        purchaseDate = tempPurchaseDate;
                     }
                     if (row.Table.Columns.Contains("LastBullInteraction"))
                     {
-                        lastBullInter = DateOnly.Parse(row["LastBullInteraction"].ToString());
+                        DateOnly.TryParse(row["LastBullInteraction"].ToString(), out DateOnly tempLastBullInter);
+                        lastBullInter = tempLastBullInter;
+                    }
+                    if (row.Table.Columns.Contains("CowTag"))
+                    {
+                        cowTag = row["CowTag"].ToString();
                     }
                 }
             }
 
+
             // Uses subracts currentDate from birthDate for age; if birthDate hasn't occured this year, decrement to compensate
             DateOnly currentDate = DateOnly.FromDateTime(DateTime.Now);
-            int age = currentDate.Year - birthDate.Year;
-            if (currentDate.DayOfYear < birthDate.DayOfYear) { age--; }
+            if (birthDate.HasValue)
+            {
+                DateOnly holder = birthDate.Value;
+                age = currentDate.Year - holder.Year;
+                if (currentDate.DayOfYear < holder.DayOfYear) { age--; }
+            }
 
-            return new JsonResult(new { sucess = true, cowAge = age, LastBullInteraction = lastBullInter, PurchaseDate = purchaseDate, BirthDate = birthDate, CowType = CowType, PricePerPound = pricePerPound, GestationPeriod = gestPeriod , GeneticMarker = genMarker,  MedicalHistory = medHistory, SellingWeight = sellWeight, WeaningWeight = weanWeight, BirthWeight = birthWeight, CurrentWeight = currentWeight, Breed = breed, BuyingPrice = buyingPrice, DameID = damID, SireID = sireID });
+            return new { success = true, cowAge = age, LastBullInteraction = lastBullInter, PurchaseDate = purchaseDate, BirthDate = birthDate, CowType = CowType, PricePerPound = pricePerPound, GestationPeriod = gestPeriod , GeneticMarker = genMarker,  MedicalHistory = medHistory, SellingWeight = sellWeight, WeaningWeight = weanWeight, BirthWeight = birthWeight, CurrentWeight = currentWeight, Breed = breed, BuyingPrice = buyingPrice, DameID = damID, SireID = sireID, CowTag = cowTag };
 
 
         }
