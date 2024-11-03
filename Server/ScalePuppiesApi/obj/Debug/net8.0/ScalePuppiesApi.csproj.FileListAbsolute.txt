@@ -177,3 +177,4 @@ C:\Users\parkh\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\bin\D
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\bin\Debug\net8.0\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\bin\Debug\net8.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 C:\Users\parkh\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\User3639\Documents\GitHub\ScalePuppiesProject\Server\ScalePuppiesApi\bin\Debug\net8.0\Newtonsoft.Json.dll

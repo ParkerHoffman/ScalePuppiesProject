@@ -126,9 +126,69 @@ namespace ScalePuppiesApi.DataLayer
             return new { success = true, HerdID = herdID, Location = loc, Comment = com, HerdType = herdType, CowInfo = cowInfo, };
         }
 
-        public static object CreateNewCow(this DataBaseConnection connection, int herdID)
+        public static int CreateNewCow(this DataBaseConnection context, int herdID, Cow moo)
         {
-            return new { };
+            int returner = 0;
+
+            DataSet ds = context.DoQuery(@"
+insert into cow(SireId, DameID, BuyingPrice, Breed, CurrentWeight, BirthWeight, WeaningWeight, SellingWeight, MedicalHistory, GeneticMarker, GenderTypeID, Gestation, PricePerPound, CowTag, DoB, PurchaseDate, LastBullInteraction)
+values (@sire, @dame, @age, @b$, @breed, @curWeight, @birWeight, @weaWeight, @selWeight, @medHis, @genMark, @cowType, @gesTime, @$perLb, @cowTag, @bDate, @pDate, @bulInter);
+set @newID = last_insert_id();
+select @newID as 'CowID';
+", new MySqlParameter("@sire", moo.SireID)
+, new MySqlParameter("@dame", moo.DameID)
+, new MySqlParameter("@age", moo.age)
+, new MySqlParameter("@b$", moo.buyingPrice)
+, new MySqlParameter("@breed", moo.breed)
+, new MySqlParameter("@curWeight", moo.currentWeight)
+, new MySqlParameter("@birWeight", moo.birthWeight)
+, new MySqlParameter("@weaWeight", moo.weanWeight)
+, new MySqlParameter("@selWeight", moo.sellWeight)
+, new MySqlParameter("@medHis", moo.medHistory)
+, new MySqlParameter("@genMark", moo.genMarker)
+, new MySqlParameter("@cowType", moo.CowType)
+, new MySqlParameter("@gesTime", moo.gestPeriod)
+, new MySqlParameter("@$perLb", moo.pricePerPound)
+, new MySqlParameter("@cowTag", moo.cowTag)
+, new MySqlParameter("@bDate", moo.birthDate)
+, new MySqlParameter("@pDate", moo.purchaseDate)
+, new MySqlParameter("@bulInter", moo.lastBullInter));
+
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    if (row.Table.Rows.Contains("CowID"))
+                    {
+                        returner = int.Parse(row["CowID"].ToString());
+                    }
+                }
+            }
+
+            return returner;
+        }
+
+        public static JsonResult CreateCowForHerd(this DataBaseConnection context, int herdID, Cow moo)
+        {
+            try
+            {
+                int cowID = context.CreateNewCow(herdID, moo);
+                DateOnly today = DateOnly.FromDateTime(DateTime.Now);
+
+                DataSet ds = context.DoQuery(@"
+insert into history(StartDate, HerdID, CowID) values (@curDate, @hID, @cID);
+", new MySqlParameter("@curDate", today)
+    , new MySqlParameter("@hID", herdID)
+    , new MySqlParameter("@cID", cowID));
+                return new JsonResult(true);
+            }
+            catch (Exception ex)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(ex.Message);
+                Console.ForegroundColor = ConsoleColor.White;
+                return new JsonResult(false);
+            }
         }
 
         public static object GetIndividualCow(this DataBaseConnection context, int CowID)

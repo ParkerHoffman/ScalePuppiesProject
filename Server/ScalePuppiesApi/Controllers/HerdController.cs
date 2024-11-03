@@ -17,8 +17,12 @@ namespace ScalePuppiesApi.Controllers
         }
 
 
-        [HttpGet]
-        [Route("Get")]
+        [HttpPost]
+        [Route("CreateCow")]
+        public async Task<JsonResult> CreateNewCow([FromQuery] int herdID, [FromBody] Cow moo)
+        {
+            return context.CreateCowForHerd(herdID, moo);
+        }
 
 
 
