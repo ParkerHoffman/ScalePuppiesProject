@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 //The API url
-var url = 'https://herdharmony.co/api';
+var url = 'https://scalepuppiesapi20241101213402.azurewebsites.net/api';
 
 export async function post(endpoint, data){
 

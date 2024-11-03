@@ -22,9 +22,9 @@ function Register(){
 
     async function checkLogin() {
         var response = await Login(farmName, userName, password);
-
+console.log(response)
         
-        if(response.success === true){
+        if(response && response.success === true){
             setFarmID(response.userID);
             navigate("/dashboard");
         } else {
