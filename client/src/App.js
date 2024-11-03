@@ -2,6 +2,7 @@ import './App.css';
 import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MockLogin from './screens/MockLogin/MockLogin';
+import FarmRegister from './screens/MockLogin/FarmRegister';
 import Dashboard from './screens/logged-in/Dashboard/Dashboard';
 
 import { GlobalDataProvider } from "./context/GlobalDataContext";
@@ -18,6 +19,7 @@ function App() {
         
         <Route path="/" element={<MockLogin/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/CreateFarm" element={<FarmRegister/>}/>
       </Routes>
     </BrowserRouter>
     </GlobalDataProvider>
