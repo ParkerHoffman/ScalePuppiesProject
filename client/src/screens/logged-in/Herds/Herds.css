@@ -54,6 +54,8 @@
 .buttons{
     display:flex;
     flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
 }
 .viewInfoButton{
     margin: 5px;
@@ -68,11 +70,11 @@
 }
 
 .mergeButton{
-
+    margin: 5px;
 }
 
 .addCowButton{
-
+    margin: 5px;
 }
 
 .navigation{

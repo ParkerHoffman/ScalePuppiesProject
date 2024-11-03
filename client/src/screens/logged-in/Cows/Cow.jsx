@@ -45,7 +45,6 @@ export default function Cow() {
                 </DataTable>
 
                 <div className="buttons">
-                    <Button id="editButton" className="editButton" label="Edit Information"/>
                     <Button id="transferButton" className="transferButton" label="Transfer to Another Herd"/>
                     <Button id="sellButton" className="sellButton" label="Mark as Sold"/>
                     <Button id="removeButton" className="removeButton" label="Remove Cow"/>

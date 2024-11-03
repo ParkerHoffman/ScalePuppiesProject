@@ -40,6 +40,7 @@
 
 .backButton{
     display:flex;
+    margin: 5px;
 
 }
 
@@ -48,21 +49,20 @@
 }
 
 .buttons{
-
-}
-
-.editButton{
-
+    dipslay:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
 }
 
 .transferButton{
-
+    margin: 5px;
 }
 
 .sellButton{
-
+    margin: 5px;
 }
 
 .removeButton{
-
+    margin: 5px;
 }
