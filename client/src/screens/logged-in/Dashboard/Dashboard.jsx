@@ -32,15 +32,6 @@ useEffect(() => {if(farmID === null){
                         <Navbar/>
                     </div>
                 </div>
-
-                <div class ="wrapper">
-                    <div class="content"> main content 
-                        <DataView id="herdTable" class="herdTable" label="Herds"/>
-                        <Button id="viewInfoButton" class="viewInfoButton" label="View Information" />
-                        <Button id="newHerdButton" class="newHerdButton" label="Add New Herd" />
-                        <Button id="deleteHerdButton" class="deleteHerdButton" label="Delete Herd" />
-                    </div>
-                </div>
             </div>
         </>
     );
