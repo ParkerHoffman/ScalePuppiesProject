@@ -1,26 +1,20 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
 using ScalePuppiesApi.Models;
-using System.Data;
-using System.Data.Common;
-
 
 namespace ScalePuppiesApi.Extensions
 {
     public static class Extensions
     {
 
-        public static DataSet DoQuery(this DataBaseConnection context, string query, params MySqlParameter[] sqlParameters)
+
+        public static DataSet doQuery(this DataBaseConnectionContext context, string SQLQuery, params SqlParameter[] paramList)
         {
-            //Declare the Dataset
             DataSet dataSet = new DataSet();
 
-            //Declare a temporary zone, will be disposed of after we are finished using it
-            using (DbCommand command = context.Database.GetDbConnection().CreateCommand())
+            using (DbCommand command = context.GetDbConnection.CreateCommand()) 
             {
-                //Set the query terms
-                command.CommandText = query;
-                //Timeout after 500 ms
+                command.CommandText = SQLQuery;
                 command.CommandTimeout = 500;
 
                 //Add all of the provided parameters
@@ -46,5 +40,12 @@ namespace ScalePuppiesApi.Extensions
 
             return dataSet;
         }
+
+
+
+
+
+
+
     }
 }

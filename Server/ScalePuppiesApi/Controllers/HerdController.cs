@@ -37,8 +37,8 @@ namespace ScalePuppiesApi.Controllers
         }
 
         [HttpGet]
-        [Route("GetCow/{CowID}")]
-        public async Task<JsonResult> GetIndividualCow([FromRoute] int CowID)
+        [Route("GetLogin")]
+        public JsonResult GetLogin()
         {
             return new JsonResult(context.GetIndividualCow(CowID));
         }

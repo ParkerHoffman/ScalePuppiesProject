@@ -3,7 +3,7 @@
     justify-content:center;
     align-items:center;
     background-color:#D0D5D2;
-    height: 350px;
+    height:450px;
     width: 350px;
     margin-top: 70px;
     box-shadow: 5px 5px gray;
@@ -12,8 +12,8 @@
 .logInForm{
     display: grid;
     background-color:#FFFFFF;
-    height: 200px;
-    margin: 0 15px 15px 15px;
+    height: 325px;
+    margin: -50px 15px 15px 15px;
     padding: 30px;
     border: #000000;
     border-style: solid;
@@ -29,29 +29,34 @@
     flex-direction:column;
 }
 
-.farmName{
-    margin-top: 10px;
-}
-
 .farmNameLabel{
-
+    display:block;
 }
 
-.username{
-    margin: 5px;
-
+.farmName{
+    flex:2;
+    margin: 0px;
 }
 
 .usernameLabel{
-
+    display:block;
+    vertical-align: top;
 }
 
-.password{
-    margin: 5px;
+.username{
+    flex:4;
+    margin: 0px;
 
 }
 
 .passwordLabel{
+    display:block;
+    vertical-align: top;
+}
+
+.password{
+    flex:6;
+    margin: 0px;
 
 }
 

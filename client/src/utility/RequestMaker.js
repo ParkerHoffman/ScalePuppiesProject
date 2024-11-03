@@ -1,0 +1,35 @@
+import axios from 'axios'
+
+//The API url
+var url = 'https://herdharmony.co/api';
+
+export async function post(endpoint, data){
+
+    var response = await axios.post(`${url}/${endpoint}`, data).catch(() => {return null;});
+
+    if(!response){
+        return null;
+    }
+
+    if(response.status === 403){
+        return 403;
+    }
+
+    return response;
+}
+
+
+
+export async function get(endpoint){
+    var response = await axios.get(`${url}/${endpoint}`).catch(() => {return null;});
+
+    if(!response){
+        return null;
+    }
+
+    if(response.status === 403){
+        return 403;
+    }
+
+    return response;
+}
