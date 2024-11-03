@@ -2,13 +2,14 @@ import React from 'react';
 import { Menubar } from 'primereact/menubar';
 import { Button } from 'primereact/button';
 import 'primeicons/primeicons.css';
+import './Navbar.css';
 
 export default function Navbar() {
     const items = [
         {
             label: 'Home',
             icon: 'pi pi-home',
-            url: '/dashboard'
+            url: '/dashboard',
         },
         {
             label: 'Herds',
@@ -29,12 +30,12 @@ export default function Navbar() {
     ];
 
     const userBar = (
-        <Button label="Log Out"/>
+        <Button className="logout-button" label="Log Out"/>
     );
 
     return (
         <div>
-            <Menubar model={items} end={userBar}/>
+            <Menubar style={{margin: '10px'}} model={items} end={userBar}/>
         </div>
     )
 }

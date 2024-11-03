@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navbar from '../../../components/Navbar';
 import { Avatar } from 'primereact/avatar';
-import { Menubar } from 'primereact/menubar';
 import { Toast } from 'primereact/toast';
 import { ConfirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog /> component
 import { confirmDialog } from 'primereact/confirmdialog'; // For confirmDialog method
-import { PanelMenu } from 'primereact/panelmenu';
-import { Menu } from 'primereact/menu';
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 import { Button } from 'primereact/button';
 import "./Dashboard.css";
-
+import { GlobalDataContext } from '../../../context/GlobalDataContext';
+import { useNavigate } from 'react-router-dom';
+import "./Dashboard.css";
 
 export default function Dashboard() {
+const {farmID} = useContext(GlobalDataContext);
+const navigate = useNavigate();
+useEffect(() => {if(farmID === null){
+    navigate('/')
+}}, []);
+
+
     return (
         <>
             <div class="dashboardScreen">
@@ -25,16 +31,6 @@ export default function Dashboard() {
                     <div className="profileInfo">
                         <Avatar className="profileAvatar" label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
                         <Menu className="profileMenu" />
-                    </div>
-                    
-                </div>
-
-                <div class ="wrapper">
-                    <div class="content"> 
-                        {/* an indication that its the home screen */}
-                    </div>
-                    <div className="navigation"> navigation
-                        <PanelMenu className="navigationMenu"/>
                     </div>
                     <div id="navigation">
                         <Navbar/>

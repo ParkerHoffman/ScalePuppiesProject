@@ -1,9 +1,18 @@
-.header{
+#dashboardHeader {
     background-color:#6E301D;
     width:100%;
     color:#FFFFFF;
     display:grid;
     grid-template-columns: 50 auto;
+}
+
+.header-content {
+    margin-top: 5px;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    text-align: center;
+    border-bottom: solid 1px #531b13;
 }
 
 .siteInfo{
@@ -60,6 +69,18 @@
 }
 .viewInfoButton{
     margin: 5px;
+.herdTable{
+
+}
+
+.viewInfoButton{}
+
+.newHerdButton{}
+
+.deleteHerdButton{}
+
+.navigation{
+
 }
 
 .newHerdButton{
