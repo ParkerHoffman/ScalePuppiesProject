@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MockLogin from './screens/MockLogin/MockLogin';
 import Dashboard from './screens/logged-in/Dashboard/Dashboard';
 
+import { useState } from 'react';
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const navigate = useNavigate();

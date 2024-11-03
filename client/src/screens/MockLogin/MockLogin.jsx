@@ -56,17 +56,17 @@ const [password, setPassword] = useState("");
                         */}
                         <div className="farmName">
                             <label className="farmNameLabel" htmlFor="farmName">Farm Name:</label>
-                            <InputText className="farmNameInput" id="farmName" placeholder="Farm Name" />
+                            <InputText className="farmNameInput" id="farmName" placeholder="Farm Name" value={farmName} onChange={(e)=>setFarmName(e.target.value)}/>
                         </div>
                         <div className="username">
                             <label className="usernameLabel" htmlFor="username">Username:</label>
-                            <InputText className="usernameInput" id="username" placeholder="Username" />
+                            <InputText className="usernameInput" id="username" placeholder="Username" value={userName} onChange={(e)=>setUserName(e.target.value)} />
                         </div>
                         <div className="password">
                             <label className="passwordLabel" htmlFor="password">Password:</label>
-                            <Password className="passwordInput" id="password" placeholder="Password"/>   
+                            <Password className="passwordInput" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>   
                         </div>
-                        <Button className="submit" label="Submit" onClick={(e) => handleSubmit()}/>
+                        <Button className="submit" label="Submit" onClick={(e) => checkLogin()}/>
                     </div>
                 </div>
             </div>

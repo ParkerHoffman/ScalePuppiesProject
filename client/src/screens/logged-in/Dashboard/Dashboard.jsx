@@ -31,13 +31,7 @@ export default function Dashboard() {
 
                 <div class ="wrapper">
                     <div class="content"> 
-                        <div> main content </div>
-                        <DataView id="herdTable" className="herdTable" label="Herds"/>
-                        <div className="buttons">
-                            <Button id="viewInfoButton" className="viewInfoButton" label="View Information" />
-                            <Button id="newHerdButton" className="newHerdButton" label="Add New Herd" />
-                            <Button id="deleteHerdButton" className="deleteHerdButton" label="Delete Herd" />
-                        </div>
+                        {/* an indication that its the home screen */}
                     </div>
                     <div className="navigation"> navigation
                         <PanelMenu className="navigationMenu"/>
