@@ -8,15 +8,35 @@ import { Column } from 'primereact/column';
          
 
 export default function Herds() {
+
+    const herdList = [
+        {
+            attributeName: "test1",
+            attributeValue: "1"
+        },
+        {
+            attributeName: "test2",
+            attributeValue: "2"
+        },
+        {
+            attributeName: "test3",
+            attributeValue: "3"
+        }
+    ];
+
+    const herdOpt = [
+        {name:"herd1"},
+        {name:"herd2"},
+        {name:"herd3"}
+    ]
+
     return (
         <>
             <Header/>
-
             <div class="content">
-
-                <ListBox className="herdSelection" id="herdSelection"/>
-
-                <DataTable tableStyle={{ minWidth: '50rem' }}>
+                <ListBox className="herdSelection" id="herdSelection" value={herdOpt} optionLabel="name"/>
+      
+                <DataTable className="cowTable" value={herdList} tableStyle={{ minWidth: '50rem' }}>
                     <Column field="CowID" header="Cattle Tag"></Column>
                     <Column field="Breed" header="Breed"></Column>
                     <Column field="Gender" header="Gender"></Column>
@@ -31,8 +51,6 @@ export default function Herds() {
                     <Button id="addCowButton" className="addCowButton" label="Add New Cow"/>
                 </div>
             </div>
-
-        
         </>
     )
 };
