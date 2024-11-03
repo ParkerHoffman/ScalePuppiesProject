@@ -6,6 +6,7 @@ import { ConfirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog 
 import { confirmDialog } from 'primereact/confirmdialog'; // For confirmDialog method
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 import { Button } from 'primereact/button';
+import "./Dashboard.css";
 import { GlobalDataContext } from '../../../context/GlobalDataContext';
 import { useNavigate } from 'react-router-dom';
 import "./Dashboard.css";
@@ -21,12 +22,15 @@ useEffect(() => {if(farmID === null){
     return (
         <>
             <div class="dashboardScreen">
-                <div id="dashboardHeader">
-                    <div class="header-content">
-                        <div class="siteInfo">
-                            <h1 class="headerText">HerdHarmony</h1>
-                            <p class="motto">Created to create harmony in and between your herds</p>
-                        </div>
+                <div class="header">
+                    <div class="siteInfo">
+                        <h1 class="headerText">HerdHarmony</h1>
+                        <p class="motto">Created to create harmony in and between your herds</p>
+                    </div>
+                    
+                    <div className="profileInfo">
+                        <Avatar className="profileAvatar" label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
+                        <Menu className="profileMenu" />
                     </div>
                     <div id="navigation">
                         <Navbar/>

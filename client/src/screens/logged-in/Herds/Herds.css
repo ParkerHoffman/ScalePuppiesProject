@@ -1,18 +1,9 @@
-#dashboardHeader {
+.header{
     background-color:#6E301D;
     width:100%;
     color:#FFFFFF;
     display:grid;
     grid-template-columns: 50 auto;
-}
-
-.header-content {
-    margin-top: 5px;
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-    text-align: center;
-    border-bottom: solid 1px #531b13;
 }
 
 .siteInfo{
@@ -46,17 +37,6 @@
     margin-left:-300px;
 }
 
-
-.dashboardScreen{
-    display:flex;
-    flex-direction: column;
-}
-
-.wrapper{
-    display:flex;
-    flex-direction: row-reverse;
-}
-
 .content{
     display:flex;
     flex:2;
@@ -67,15 +47,8 @@
     display:flex;
     flex-direction: row;
 }
-
-.viewInfoButton{}
-
-.newHerdButton{}
-
-.deleteHerdButton{}
-
-.navigation{
-
+.viewInfoButton{
+    margin: 5px;
 }
 
 .newHerdButton{

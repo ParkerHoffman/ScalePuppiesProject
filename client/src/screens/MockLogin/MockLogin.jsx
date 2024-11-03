@@ -62,22 +62,23 @@ function Register(){
                             <label htmlFor="password">Password:</label>
                         </FloatLabel>
                         */}
-                    <div class="farmName">
-                            <label class="farmNameLabel" htmlFor="farmName">Farm Name:</label>
-                            <InputText class="farmNameInput" id="farmName" placeholder="Farm Name" value={farmName} onChange={(e) => setFarmName(e.target.value)} />
+                        <div className="farmName">
+                            <label className="farmNameLabel" htmlFor="farmName">Farm Name:</label>
+                            <InputText className="farmNameInput" id="farmName" placeholder="Farm Name" value={farmName} onChange={(e)=>setFarmName(e.target.value)}/>
                         </div>
-                        <div class="username">
-                            <label class="usernameLabel" htmlFor="username">Username:</label>
-                            <InputText class="usernameInput" id="username" placeholder="Username" value={userName} onChange ={(e) => setUserName(e.target.value)} />
+                        <div className="username">
+                            <label className="usernameLabel" htmlFor="username">Username:</label>
+                            <InputText className="usernameInput" id="username" placeholder="Username" value={userName} onChange={(e)=>setUserName(e.target.value)} />
                         </div>
-                        <div class="password">
-                            <label class="passwordLabel" htmlFor="password">Password:</label>
-                            <Password class="passwordInput" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>   
+                        <div className="password">
+                            <label className="passwordLabel" htmlFor="password">Password:</label>
+                            <Password className="passwordInput" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>   
                         </div>
                         <Button class="submit" label="Submit" onClick={(e) => checkLogin()}/>
                         <div style={{marginTop: ".5em;"}}><b>No account? No problem!</b></div>
 
                         <Button class="submit" label="Register" onClick={(e) => Register()}/>
+
                     </div>
                 </div>
             </div>

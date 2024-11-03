@@ -4,13 +4,19 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MockLogin from './screens/MockLogin/MockLogin';
 import FarmRegister from './screens/MockLogin/FarmRegister';
 import Dashboard from './screens/logged-in/Dashboard/Dashboard';
-
+import { useState } from 'react';
 import { GlobalDataProvider } from "./context/GlobalDataContext";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const navigate = useNavigate();
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
 
   return (
     <GlobalDataProvider>
