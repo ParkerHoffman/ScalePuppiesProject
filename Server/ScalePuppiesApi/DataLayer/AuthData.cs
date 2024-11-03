@@ -78,6 +78,51 @@ insert into user (Name, Password, isSuperuser, isOwner, FarmID) values (@un, @up
 , new MySqlParameter("@f", FarmID));
             return new JsonResult("");
         }
+
+
+
+        public static JsonResult GetUserList(this DataBaseConnection context, int FarmID)
+        {
+            DataSet ds = context.DoQuery("select UserID, Name, password, isOwner from user where FarmID = @Farm", new MySqlParameter("@Farm", FarmID));
+
+            List<object> users = new List<object>();
+
+            foreach (DataTable table in ds.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+
+                    int userID = -1;
+                    string user = "";
+                    string password = "";
+                    bool isOwner = false;
+
+                    if (row.Table.Columns.Contains("UserID"))
+                    {
+                        userID = int.Parse(row["UserID"].ToString());
+                    }
+                    if (row.Table.Columns.Contains("Name"))
+                    {
+                        user = row["Name"].ToString();
+                    }
+                    if (row.Table.Columns.Contains("Password"))
+                    {
+                        password = row["Password"].ToString();
+                    }
+                    if (row.Table.Columns.Contains("isOwner"))
+                    {
+                        isOwner = bool.Parse(row["isOwner"].ToString());
+                    }
+
+                    users.Add(new { user = user, password = password, ID = userID, owner = isOwner });
+
+                }
+
+            }
+            return new JsonResult(users);
+
+        }
+
     }
 
 

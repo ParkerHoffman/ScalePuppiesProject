@@ -39,5 +39,12 @@ namespace ScalePuppiesApi.Controllers
             return context.CreateNewUser(data.UserName, data.UserPassword, data.isSuperUser, FarmID);
         }
 
+        [HttpPost]
+        [Route("{FarmID}/GetUserList")]
+        public async Task<JsonResult> GetUserList([FromRoute] int FarmID)
+        {
+            return context.GetUserList(FarmID);
+        }
+
     }
 }
