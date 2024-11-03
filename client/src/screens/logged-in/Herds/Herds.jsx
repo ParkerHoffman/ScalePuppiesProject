@@ -13,6 +13,7 @@ import { getHerdList } from "../../../Services/HerdManagerService";
 import { GlobalDataContext } from "../../../context/GlobalDataContext";
 import { Dialog } from "primereact/dialog";
 import { FloatLabel } from "primereact/floatlabel";
+import { InputTextarea } from 'primereact/inputtextarea';
          
 
 export default function Herds() {
@@ -25,8 +26,8 @@ export default function Herds() {
     const [ newHerd, setNewHerd ] = useState({});
     const [ newCow, setNewCow ] = useState({});
     const [ cattleTag, setCattleTag ] = useState(null);
-    const [ cowBreed, setCowBreed ] = useState(null);
-    const [ cowGender, setCowGender ] = useState(null);
+    const [ cowBreed, setCowBreed ] = useState("");
+    const [ cowGender, setCowGender ] = useState("");
 
 
     useEffect(() => {
@@ -65,38 +66,48 @@ export default function Herds() {
     ];
 
     const herdOpt = [
-        {name:"herd1"},
-        {name:"herd2"},
-        {name:"herd3"}
+        {herdID:"1", location: "Pasture 2", comments: "Two Black Angus, One Charolais", herdType: "Beef"},
+        {herdID:"2", location: "Pasture 3", comments: "", herdType: "Dairy"},
+        {herdID:"3", location: "Pasture 1", comments: "", herdType: "Beef"}
     ]
 
     const onHideAddCowDialog = () => {
         setNewCow({});
         setAddCowDialogVisible(false);
-    }
+    };
 
     const onHideAddHerdDialog = () => {
         setNewHerd({});
         setAddHerdDialogVisible(false);
-    }
+    };
 
-    const addCowFooter = () => {
-        return(
+    const addCowFooter = (
             <div>
                 <Button label="Submit"/>
                 <Button label="Cancel" onClick={onHideAddCowDialog}/>
             </div>
-        );
-    }
+    );
 
-    const addHerdFooter = () => {
-        return(
+    const addHerdFooter = (
             <div>
                 <Button label="Submit"/>
                 <Button label="Cancel" onClick={onHideAddHerdDialog}/>
             </div>
-        );
-    }
+    );
+
+    const removeHerdFooter = (
+        <div>
+            <Button label="Yes"/>
+            <Button label="No"/>
+        </div>
+    );
+
+    const removeCowFooter = (
+        <div>
+            <Button label="Yes"/>
+            <Button label="No"/>
+        </div>
+    );
 
     return (
         <>
@@ -104,7 +115,7 @@ export default function Herds() {
             <div className="content">
                 <div className="select">
                     <label className="herdSelectLabel" htmlFor="herdSelection">Select a Herd</label>
-                    <Dropdown className="herdSelection" id="herdSelection" value={selectedHerd} onChange={(e) => setSelectedHerd(e.target.value)} options={herdOpt} optionLabel="name"/>
+                    <Dropdown className="herdSelection" id="herdSelection" value={selectedHerd} onChange={(e) => setSelectedHerd(e.target.value)} options={herdOpt} optionValue="herdID" optionLabel="location"/>
                 </div>
 
                 <DataTable className="cowTable" value={herdList} tableStyle={{ minWidth: '50rem' }}>
@@ -114,10 +125,9 @@ export default function Herds() {
                 </DataTable>
 
                 <div className="buttons">
-                    <Button id="newHerdButton" className="newHerdButton" label="Create New Herd" onClick={setAddHerdDialogVisible(true)}/>
+                    <Button id="newHerdButton" className="newHerdButton" label="Create New Herd" />
                     <Button id="deleteHerdButton" className="deleteHerdButton" label="Delete Herd" />
-                    <Button id="mergeButton" className="mergeButton" label="Merge Herds"/>
-                    <Button id="addCowButton" className="addCowButton" label="Add New Cow" onClick={setAddCowDialogVisible(true)}/>
+                    <Button id="addCowButton" className="addCowButton" label="Add New Cow" onClick={() => setAddCowDialogVisible(true)}/>
                 </div>
 
                 <div className="dialogs">
@@ -158,21 +168,36 @@ export default function Herds() {
                                     <InputText/>
                                     <label htmlFor=""></label>
                                 </FloatLabel>
+                                <FloatLabel>
+                                    <InputText/>
+                                    <label htmlFor=""></label>
+                                </FloatLabel>
+                                <FloatLabel>
+                                    <InputText/>
+                                    <label htmlFor="herdType">Herd Type</label>
+                                </FloatLabel>
                             </div>
                         </div>
                     </Dialog>
                         
-                    <Dialog id="removeHerdDialog">
+                    <Dialog id="removeHerdDialog"
+                        footer={removeHerdFooter}
+                    >
                         <div>
-                            <Button/>
-                            <Button/>
+                            <p>Are you sure you want to remove this herd?</p>
+                            <p>Selected Herd: </p>
                         </div>
                     </Dialog>
 
                     <Dialog id="removeCowDialog">
                         <div>
-                            <Button/>
-                            <Button/>
+                            <p>Are you sure you want to remove this cow?</p>
+                            <p>Selected Cow: </p>
+                            <div style={{backgroundColor: "lightgray"}}>
+                                <p>Cattle Tag: </p>
+                                <p>Breed: </p>
+                                <p>Gender: </p>
+                            </div>
                         </div>
                     </Dialog>
 
