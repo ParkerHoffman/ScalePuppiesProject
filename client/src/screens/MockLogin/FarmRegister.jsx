@@ -5,31 +5,33 @@ import { FloatLabel } from 'primereact/floatlabel';
 import { useNavigate } from 'react-router-dom';
 import "./MockLogin.css";
 import { useState, useContext } from 'react';
-import { Login } from '../../Services/LoginService';
+import { RegisterFarm } from '../../Services/LoginService';
 import { GlobalDataContext } from "../../context/GlobalDataContext";
 
-export default function MockLogin() {
+export default function FarmRegister() {
     const navigate = useNavigate();
-    const { setFarmID, toast } = useContext(GlobalDataContext);
+    const { setFarmID,toast, setIsOwner } = useContext(GlobalDataContext);
 const [farmName, setFarmName] = useState("");
 const [userName, setUserName] = useState("");
 const [password, setPassword] = useState("");
+const [farmTitle, setFarmTitle] = useState("");
 
 
-function Register(){
-    navigate("/CreateFarm");
-}
-
-    async function checkLogin() {
-        var response = await Login(farmName, userName, password);
+    async function Register() {
+        var response = await RegisterFarm(farmTitle, farmName, userName, password);
 
         
         if(response.success === true){
             setFarmID(response.userID);
+            setIsOwner(true);
             navigate("/dashboard");
         } else {
-            toast('error', 'Error Logging In', 'Please check your Farm Username, Username, and Password')
+            toast('error', 'Error Logging In', 'Please check your Farm Username, Username, and password')
         }
+    }
+
+    function ReturntoLogIn(){
+        navigate("/");
     }
 
     return (
@@ -62,23 +64,25 @@ function Register(){
                             <label htmlFor="password">Password:</label>
                         </FloatLabel>
                         */}
-                        <div className="farmName">
-                            <label className="farmNameLabel" htmlFor="farmName">Farm Name:</label>
-                            <InputText className="farmNameInput" id="farmName" placeholder="Farm Name" value={farmName} onChange={(e)=>setFarmName(e.target.value)}/>
+                    <div class="farmName">
+                            <label class="farmNameLabel" htmlFor="farmName">Farm Username:</label>
+                            <InputText class="farmNameInput" id="farmName" placeholder="Farm Name" value={farmName} onChange={(e) => setFarmName(e.target.value)} />
                         </div>
-                        <div className="username">
-                            <label className="usernameLabel" htmlFor="username">Username:</label>
-                            <InputText className="usernameInput" id="username" placeholder="Username" value={userName} onChange={(e)=>setUserName(e.target.value)} />
+                        <div class="farmName">
+                            <label class="farmNameLabel" htmlFor="farmTitle">Farm Name:</label>
+                            <InputText class="farmNameInput" id="farmTitle" placeholder="Farm Name" value={farmTitle} onChange={(e) => setFarmTitle(e.target.value)} />
                         </div>
-                        <div className="password">
-                            <label className="passwordLabel" htmlFor="password">Password:</label>
-                            <Password className="passwordInput" id="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>   
+                        <div class="username">
+                            <label class="usernameLabel" htmlFor="username">Username:</label>
+                            <InputText class="usernameInput" id="username" placeholder="Username" value={userName} onChange ={(e) => setUserName(e.target.value)} />
                         </div>
-                        <Button class="submit" label="Submit" onClick={(e) => checkLogin()}/>
-                        <div style={{marginTop: ".5em;"}}><b>No account? No problem!</b></div>
+                        <div class="password">
+                            <label class="passwordLabel" htmlFor="password">Password:</label>
+                            <Password class="passwordInput" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>   
+                        </div>
+                        <Button class="submit" label="Submit" onClick={(e) => Register()}/>
 
-                        <Button class="submit" label="Register" onClick={(e) => Register()}/>
-
+                        <Button class="submit" label="Back" onClick={(e) => ReturntoLogIn()}/>
                     </div>
                 </div>
             </div>
