@@ -7,6 +7,8 @@ import { PanelMenu } from 'primereact/panelmenu';
 import { Menu } from 'primereact/menu';
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 import { Button } from 'primereact/button';
+import "./Dashboard.css";
+
 
 export default function Dashboard() {
     return (
@@ -14,22 +16,29 @@ export default function Dashboard() {
             <div class="dashboardScreen">
                 <div class="header">
                     <div class="siteInfo">
-                    <h1 class="headerText">HerdHarmony</h1>
-                    <p class="motto">Created to create harmony in and between your herds</p>
+                        <h1 class="headerText">HerdHarmony</h1>
+                        <p class="motto">Created to create harmony in and between your herds</p>
                     </div>
-                    <Avatar class="profileAvatar" label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="circle"/>
-                    <Menu class="profileMenu" />
+                    
+                    <div className="profileInfo">
+                        <Avatar className="profileAvatar" label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
+                        <Menu className="profileMenu" />
+                    </div>
+                    
                 </div>
 
                 <div class ="wrapper">
-                    <div class="content"> main content 
-                        <DataView id="herdTable" class="herdTable" label="Herds"/>
-                        <Button id="viewInfoButton" class="viewInfoButton" label="View Information" />
-                        <Button id="newHerdButton" class="newHerdButton" label="Add New Herd" />
-                        <Button id="deleteHerdButton" class="deleteHerdButton" label="Delete Herd" />
+                    <div class="content"> 
+                        <div> main content </div>
+                        <DataView id="herdTable" className="herdTable" label="Herds"/>
+                        <div className="buttons">
+                            <Button id="viewInfoButton" className="viewInfoButton" label="View Information" />
+                            <Button id="newHerdButton" className="newHerdButton" label="Add New Herd" />
+                            <Button id="deleteHerdButton" className="deleteHerdButton" label="Delete Herd" />
+                        </div>
                     </div>
-                    <div class="navigation"> navigation
-                        <PanelMenu class="navigationMenu" className="w-full md:w-20rem" />
+                    <div className="navigation"> navigation
+                        <PanelMenu className="navigationMenu"/>
                     </div>
                 </div>
             </div>

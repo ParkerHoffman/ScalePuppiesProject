@@ -5,7 +5,7 @@ import MockLogin from "./screens/MockLogin/MockLogin";
 import Dashboard from "./screens/logged-in/Dashboard/Dashboard";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   // const navigate = useNavigate();
 
   const handleLogin = () => {

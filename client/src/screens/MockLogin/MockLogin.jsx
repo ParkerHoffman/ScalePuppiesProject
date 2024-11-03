@@ -41,19 +41,19 @@ export default function MockLogin({onLogin}) {
                             <label htmlFor="password">Password:</label>
                         </FloatLabel>
                         */}
-                        <div class="farmName">
-                            <label class="farmNameLabel" htmlFor="farmName">Farm Name:</label>
-                            <InputText class="farmNameInput" id="farmName" placeholder="Farm Name" />
+                        <div className="farmName">
+                            <label className="farmNameLabel" htmlFor="farmName">Farm Name:</label>
+                            <InputText className="farmNameInput" id="farmName" placeholder="Farm Name" />
                         </div>
-                        <div class="username">
-                            <label class="usernameLabel" htmlFor="username">Username:</label>
-                            <InputText class="usernameInput" id="username" placeholder="Username" />
+                        <div className="username">
+                            <label className="usernameLabel" htmlFor="username">Username:</label>
+                            <InputText className="usernameInput" id="username" placeholder="Username" />
                         </div>
-                        <div class="password">
-                            <label class="passwordLabel" htmlFor="password">Password:</label>
-                            <Password class="passwordInput" id="password" placeholder="Password"/>   
+                        <div className="password">
+                            <label className="passwordLabel" htmlFor="password">Password:</label>
+                            <Password className="passwordInput" id="password" placeholder="Password"/>   
                         </div>
-                        <Button class="submit" label="Submit" onClick={(e) => handleSubmit()}/>
+                        <Button className="submit" label="Submit" onClick={(e) => handleSubmit()}/>
                     </form>
                 </div>
             </div>
