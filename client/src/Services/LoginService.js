@@ -18,3 +18,8 @@ export async function RegisterFarm(farmN, farmUN, un, pass){
         }
      ))?.data;
 }
+
+
+export async function GetUserList(FarmID){
+    return (await get(`${AuthAPI}/${FarmID}/GetUserList`))?.data
+}
