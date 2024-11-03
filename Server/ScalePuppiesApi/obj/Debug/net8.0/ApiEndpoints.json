@@ -154,6 +154,22 @@
   },
   {
     "ContainingType": "ScalePuppiesApi.Controllers.HerdController",
+    "Method": "GetHerdsOnly",
+    "RelativePath": "Herd/GetHerdList",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "FarmID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScalePuppiesApi.Controllers.HerdController",
     "Method": "GetHerdList",
     "RelativePath": "Herd/GetHerds",
     "HttpMethod": "GET",
@@ -162,6 +178,22 @@
     "Parameters": [
       {
         "Name": "FarmID",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ScalePuppiesApi.Controllers.HerdController",
+    "Method": "RemoveCow",
+    "RelativePath": "Herd/RemoveCow",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CowID",
         "Type": "System.Int32",
         "IsRequired": false
       }

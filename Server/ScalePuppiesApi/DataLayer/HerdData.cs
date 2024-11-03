@@ -69,7 +69,48 @@ namespace ScalePuppiesApi.DataLayer
                 }
             }
 
-            return new JsonResult(new { success = true });
+            object[] tired = herdList.ToArray();
+
+            return new JsonResult(new { success = true, HerdList = tired });
+        }
+
+        public static JsonResult GetHerdsOnly(this DataBaseConnection context, int FarmID)
+        {
+            DataSet ds = context.DoQuery(@"
+select HerdID, Location loc,
+ Comment, ht.Description from Herd left join herd_type ht on herd.HerdTypeID = ht.HerdTypeID
+where FarmID = @fID;
+", new MySqlParameter("@fID", FarmID));
+
+            DataTable herds = ds.Tables[0];
+
+            List<int> ids = new List<int>();
+            List<string?> loc = new List<string?>();
+            List<string?> comment = new List<string?>();
+            List<string?> type = new List<string?>();
+
+
+            foreach (DataRow row in herds.Rows)
+            {
+                if (row.Table.Columns.Contains("HerdID"))
+                {
+                    ids.Add(int.Parse(row["HerdID"].ToString()));
+                }
+                if (row.Table.Columns.Contains("loc"))
+                {
+                    loc.Add(row["loc"].ToString());
+                }
+                if (row.Table.Columns.Contains("Comment"))
+                {
+                    comment.Add(row["Comment"].ToString());
+                }
+                if (row.Table.Columns.Contains("Description"))
+                {
+                    type.Add(row["Description"].ToString());
+                }
+            }
+
+            return new JsonResult(new {HerdID = ids, Location = loc, Comment = comment, HerdType = type });
         }
 
         public static object GetIndividualHerd(this DataBaseConnection context, int HerdID)
@@ -323,6 +364,20 @@ insert into history(StartDate, HerdID, CowID) values (@curDate, @hID, @cID);
             return new { success = true, cowAge = age, LastBullInteraction = lastBullInter, PurchaseDate = purchaseDate, BirthDate = birthDate, CowType = CowType, PricePerPound = pricePerPound, GestationPeriod = gestPeriod, GeneticMarker = genMarker, MedicalHistory = medHistory, SellingWeight = sellWeight, WeaningWeight = weanWeight, BirthWeight = birthWeight, CurrentWeight = currentWeight, Breed = breed, BuyingPrice = buyingPrice, DameID = damID, SireID = sireID, CowTag = cowTag };
         }
 
+        public static JsonResult RemoveCow(this DataBaseConnection context, int CowID)
+        {
+            DataSet ds = context.DoQuery(@"
+update history
+set EndDate = curdate()
+where EndDate is null and CowID = @cowID;
+", new MySqlParameter("@cowID", CowID));
 
+            return new JsonResult( new { success = true });
+        }
+
+        //public static JsonResult MoveCow(this DataBaseConnection context, int CowID, int HerdID)
+        //{
+        //    DataSet ds = 
+        //}
     }
 }

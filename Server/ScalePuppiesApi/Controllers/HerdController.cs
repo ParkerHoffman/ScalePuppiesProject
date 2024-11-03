@@ -24,7 +24,19 @@ namespace ScalePuppiesApi.Controllers
             return context.CreateCowForHerd(herdID, moo);
         }
 
+        [HttpGet]
+        [Route("RemoveCow")]
+        public async Task<JsonResult> RemoveCow([FromQuery] int CowID)
+        {
+            return context.RemoveCow(CowID);
+        }
 
+        //[HttpGet]
+        //[Route("MoveCow")]
+        //public async Task<JsonResult> MoveCow([FromQuery] int CowID, [FromQuery] int HerdID)
+        //{
+        //    return context.MoveCow(CowID, HerdID);
+        //}
 
         [HttpGet]
         [Route("GetHerds")]
@@ -32,6 +44,14 @@ namespace ScalePuppiesApi.Controllers
         {
             return new JsonResult(context.GetHerdList(FarmID));
         }
+
+        [HttpGet]
+        [Route("GetHerdList")]
+        public async Task<JsonResult> GetHerdsOnly([FromQuery] int FarmID)
+        {
+            return context.GetHerdsOnly(FarmID);
+        }
+
 
         [HttpGet]
         [Route("GetHerd/{HerdID}")]
