@@ -1,11 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import Navbar from '../../../components/Navbar';
+import Navbar from '../../../components/Navbar/Navbar';
 import { Avatar } from 'primereact/avatar';
-import { Toast } from 'primereact/toast';
-import { ConfirmDialog } from 'primereact/confirmdialog'; // For <ConfirmDialog /> component
-import { confirmDialog } from 'primereact/confirmdialog'; // For confirmDialog method
-import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
-import { Button } from 'primereact/button';
 import "./Dashboard.css";
 import { GlobalDataContext } from '../../../context/GlobalDataContext';
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +25,6 @@ useEffect(() => {if(farmID === null){
                     
                     <div className="profileInfo">
                         <Avatar className="profileAvatar" label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
-                        <Menu className="profileMenu" />
                     </div>
                     <div id="navigation">
                         <Navbar/>

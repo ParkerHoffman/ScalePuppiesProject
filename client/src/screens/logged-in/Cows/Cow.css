@@ -33,6 +33,36 @@
     margin-right: 900px;
 }
 
-.profileMenu{
-    margin-left:-300px;
+.content{
+    display:flex;
+    flex-direction: column;
+}
+
+.backButton{
+    display:flex;
+
+}
+
+.cowDetailTable{
+
+}
+
+.buttons{
+
+}
+
+.editButton{
+
+}
+
+.transferButton{
+
+}
+
+.sellButton{
+
+}
+
+.removeButton{
+
 }

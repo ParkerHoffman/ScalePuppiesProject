@@ -1,7 +1,7 @@
 import "./Herds.css";
 import { Button } from 'primereact/button';
 import React from 'react';
-import Navbar from '../../../components/Navbar';
+import Navbar from '../../../components/Navbar/Navbar';
 import { Avatar } from 'primereact/avatar';
 import { PanelMenu } from 'primereact/panelmenu';
 import { ListBox } from 'primereact/listbox';
@@ -10,6 +10,28 @@ import { Column } from 'primereact/column';
          
 
 export default function Herds() {
+
+    const herdList = [
+        {
+            attributeName: "test1",
+            attributeValue: "1"
+        },
+        {
+            attributeName: "test2",
+            attributeValue: "2"
+        },
+        {
+            attributeName: "test3",
+            attributeValue: "3"
+        }
+    ];
+
+    const herdOpt = [
+        {name:"herd1"},
+        {name:"herd2"},
+        {name:"herd3"}
+    ]
+
     return (
         <>
             <div class="header">
@@ -19,15 +41,14 @@ export default function Herds() {
                 </div>                
                 <div className="profileInfo">
                     <Avatar className="profileAvatar" label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
-                    <Menu className="profileMenu" />
                 </div>                
             </div>
 
             <div class="content">
 
-                <ListBox className="herdSelection" id="herdSelection"/>
+                <ListBox className="herdSelection" id="herdSelection" value={herdOpt} optionLabel="name"/>
 
-                <DataTable value={} tableStyle={{ minWidth: '50rem' }}>
+                <DataTable className="cowTable" value={herdList} tableStyle={{ minWidth: '50rem' }}>
                     <Column field="CowID" header="Cattle Tag"></Column>
                     <Column field="Breed" header="Breed"></Column>
                     <Column field="Gender" header="Gender"></Column>

@@ -43,6 +43,14 @@
     flex-direction: column;
 }
 
+.herdSelection{
+
+}
+
+.cowTable{
+
+}
+
 .buttons{
     display:flex;
     flex-direction: row;
@@ -57,4 +65,17 @@
 
 .deleteHerdButton{
     margin: 5px;
+}
+
+.mergeButton{
+
+}
+
+.addCowButton{
+
+}
+
+.navigation{
+    display:flex;
+    flex:2;
 }

@@ -3,11 +3,26 @@ import { Button } from 'primereact/button';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import React from 'react';
-import Navbar from '../../../components/Navbar';
+import Navbar from '../../../components/Navbar/Navbar';
 import { Avatar } from 'primereact/avatar';
 import { PanelMenu } from 'primereact/panelmenu';
 
 export default function Cow() {
+
+    const cowList = [
+        {
+            attributeName: "test1",
+            attributeValue: "1"
+        },
+        {
+            attributeName: "test2",
+            attributeValue: "2"
+        },
+        {
+            attributeName: "test3",
+            attributeValue: "3"
+        }
+    ];
 
     return(
         <>
@@ -18,15 +33,14 @@ export default function Cow() {
                 </div>                
                 <div className="profileInfo">
                     <Avatar className="profileAvatar" label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
-                    <Menu className="profileMenu" />
                 </div>                
             </div>
 
             <div className="content">
                 <Button id="backToHerd" className="backButton" label="Back to Herd"/>
 
-            <DataTable value={} tableStyle={{ minWidth: '50rem' }}>
-                    <Column field="attributeNate" header="Attribute Name"></Column>
+            <DataTable className="cowDetailTable" value={cowList} tableStyle={{ minWidth: '50rem' }}>
+                    <Column field="attributeName" header="Attribute Name"></Column>
                     <Column field="attributeValue" header="Value"></Column>
                 </DataTable>
 
