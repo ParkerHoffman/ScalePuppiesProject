@@ -10,6 +10,10 @@ namespace ScalePuppiesApi.DataLayer
     {
         public static JsonResult loginValidation(this DataBaseConnection context, string FarmUser, string user, string pass)
         {
+
+            user = user.ToLower();
+            FarmUser = FarmUser.ToLower();
+
             DataSet ds = context.DoQuery(@"
 Select  u.FarmID, u.isOwner, u.isSuperuser from user u
 left join farm f on f.FarmId = u.FarmID
