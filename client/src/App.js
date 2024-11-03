@@ -7,6 +7,7 @@ import Dashboard from './screens/logged-in/Dashboard/Dashboard';
 import Herds from './screens/logged-in/Herds/Herds'
 import { useState } from 'react';
 import { GlobalDataProvider } from "./context/GlobalDataContext";
+import Herds from "./screens/logged-in/Herds/Herds";
 
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/herds/manage" element={<Herds/>}/>
         <Route path="/CreateFarm" element={<FarmRegister/>}/>
+        <Route path="/herds/manage" element={<Herds/>}/>
       </Routes>
     </BrowserRouter>
     </GlobalDataProvider>

@@ -1,9 +1,7 @@
 import "./Herds.css";
 import { Button } from 'primereact/button';
 import React from 'react';
-import Navbar from '../../../components/Navbar/Navbar';
-import { Avatar } from 'primereact/avatar';
-import { PanelMenu } from 'primereact/panelmenu';
+import Header from '../../../components/Header/Header';
 import { ListBox } from 'primereact/listbox';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -34,20 +32,10 @@ export default function Herds() {
 
     return (
         <>
-            <div class="header">
-                <div class="siteInfo">
-                    <h1 class="headerText">HerdHarmony</h1>
-                    <p class="motto">Created to create harmony in and between your herds</p>
-                </div>                
-                <div className="profileInfo">
-                    <Avatar className="profileAvatar" label="T" style={{backgroundColor: '#FFFFFF', color:'#000000'}} shape="square" size="large"/>
-                </div>                
-            </div>
-
+            <Header/>
             <div class="content">
-
                 <ListBox className="herdSelection" id="herdSelection" value={herdOpt} optionLabel="name"/>
-
+      
                 <DataTable className="cowTable" value={herdList} tableStyle={{ minWidth: '50rem' }}>
                     <Column field="CowID" header="Cattle Tag"></Column>
                     <Column field="Breed" header="Breed"></Column>
@@ -63,14 +51,6 @@ export default function Herds() {
                     <Button id="addCowButton" className="addCowButton" label="Add New Cow"/>
                 </div>
             </div>
-
-            <div className="navigation"> navigation
-                <PanelMenu className="navigationMenu"/>
-            </div>
-            <div id="navigation">
-                <Navbar/>  
-            </div>
-        
         </>
     )
 };
