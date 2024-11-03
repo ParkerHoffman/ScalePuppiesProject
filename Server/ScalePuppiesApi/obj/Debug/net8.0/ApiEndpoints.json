@@ -101,16 +101,21 @@
   },
   {
     "ContainingType": "ScalePuppiesApi.Controllers.HerdController",
-    "Method": "GetHerdList",
-    "RelativePath": "Herd/Get",
-    "HttpMethod": "GET",
+    "Method": "CreateNewCow",
+    "RelativePath": "Herd/CreateCow",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "FarmID",
+        "Name": "herdID",
         "Type": "System.Int32",
         "IsRequired": false
+      },
+      {
+        "Name": "moo",
+        "Type": "ScalePuppiesApi.Models.Cow",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
